@@ -11,13 +11,16 @@ Models
   Kit
     belongs_to user
     has_many items
+    has_many categories through :items
 
   Item
     belongs_to category
-    belongs_to user?
+    belong_to kit
+    belongs_to user
 
   Category
     has_many items
+    has_many kits through items
     Users can't add, only select from drop down
 
   Users
