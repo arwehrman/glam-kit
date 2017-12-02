@@ -12,26 +12,34 @@ Models
     belongs_to user
     has_many items
     has_many categories through :items
+      - name
 
   Item
     belongs_to category
     belong_to kit
     belongs_to user
 
+    What makes an Item?
+      - name
+      - brand
+      - color
+      - price
+      - rating
+      - notes or comments  
+      - category_id
+      - kit_id
+
   Category
     has_many items
     has_many kits through items
-    Users can't add, only select from drop down
+    
+  Users can't add, only select from drop down
+      - name
 
   Users
     has_many kits
     has_many items through kit
 
-What makes an Item?
-  - name
-  - brand
-  - color
-  - price
-  - rating
-  - notes or comments  
-  - category_id   Category should be it's own model
+      - name
+      - email
+      - password (probably password_digest)
