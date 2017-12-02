@@ -26,3 +26,12 @@ Models
   Users
     has_many kits
     has_many items through kit
+
+What makes an Item?
+  - name
+  - brand
+  - color
+  - price
+  - rating
+  - notes or comments  
+  - category_id   Category should be it's own model
