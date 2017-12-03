@@ -1,6 +1,10 @@
 <h1>Add a New Kit Form</h1>
 
 <%= form_for(@kit) do |f| %>
-  <% f.text_field :name %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+  <%= f.submit %>
   <% end %>
   <p>add items</p>
+<!-- Need to make nested form to add items -->
+<!-- Need to think about what to do when Kit is already created and adding items -->

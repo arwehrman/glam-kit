@@ -16,7 +16,7 @@ Models
 
   Item
     belongs_to category
-    belong_to kit
+    belongs_to kit
     belongs_to user
 
     What makes an Item?
@@ -32,7 +32,9 @@ Models
   Category
     has_many items
     has_many kits through items
-    
+
+  Should create seed data for Category
+
   Users can't add, only select from drop down
       - name
 

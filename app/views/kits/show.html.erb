@@ -1,8 +1,11 @@
-<h1>Show Kit</h1>
+<h1>Kit Details</h1>
 <%= @kit.name %>
 <p>Items in your glam kit:</p>
 <ul>
-  <li>Item 1</li>
-  <li>Item 2</li>
-  <li>Item 3</li>
+  <% @kit.items.each do |i| %>
+  <li><%= i.name %> - <%= i.category.name %></li>
+
+<% end %>
 </ul>
+
+<!-- Need to think about what information to display here. All item info?? -->
