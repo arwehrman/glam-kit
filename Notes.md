@@ -11,8 +11,8 @@ Models
   Kit
     belongs_to user
     has_many items
-    has_many categories through :items
-      - name
+    has_many categories through :items?
+
 
   Item
     belongs_to category
@@ -31,9 +31,10 @@ Models
 
   Category
     has_many items
-    has_many kits through items
+    has_many kits through items?
+      - name
 
-  Should create seed data for Category
+    create seed data for Category
 
   Users can't add, only select from drop down
       - name
@@ -45,3 +46,10 @@ Models
       - name
       - email
       - password (probably password_digest)
+
+
+  Nested form
+    currently nested form is working with items_attributes= method  
+    may need to change the select helper for Categories drop down, currently
+    pulling directly from the model, change to @categories?
+    

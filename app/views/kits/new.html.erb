@@ -34,7 +34,7 @@
     <%= items_builder.label :comment %>
     <%= items_builder.text_area :comment %><br />
     <%= items_builder.collection_select(:category_id, Category.all, :id, :name) %>
-
+    <!-- may need to refactor to remove directly pulling from model -->
     <% end %>
     <%= f.submit %>
   <% end %>
