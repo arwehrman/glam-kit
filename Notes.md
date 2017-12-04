@@ -51,5 +51,5 @@ Models
   Nested form
     currently nested form is working with items_attributes= method  
     may need to change the select helper for Categories drop down, currently
-    pulling directly from the model, change to @categories?
-    
+    pulling directly from the model, change to @categories? Would need to build
+    a Category controller
