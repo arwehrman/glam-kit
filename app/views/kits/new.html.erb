@@ -14,7 +14,7 @@
 <% end %>
 
 <h1>Add a New Kit Form</h1>
-
+<div>
 <%= form_for(@kit) do |f| %>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
@@ -38,6 +38,6 @@
     <% end %>
     <%= f.submit %>
   <% end %>
-
+</div>
 <!-- Need to think about what to do when Kit is already created and adding items -->
 <!-- form may need to be refactored -->
