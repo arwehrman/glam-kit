@@ -1,10 +1,43 @@
+<% if @kit.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@kit.errors.count, "error") %>
+      prohibited this post from being saved:
+    </h2>
+
+    <ul>
+    <% @kit.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h1>Add a New Kit Form</h1>
 
 <%= form_for(@kit) do |f| %>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
-  <%= f.submit %>
+<p>Add Items to Kit</p>
+  <%= f.fields_for :items do |items_builder| %>
+  <p>Item</p>
+    <%= items_builder.label :name %>
+    <%= items_builder.text_field :name %><br />
+    <%= items_builder.label :brand %>
+    <%= items_builder.text_field :brand %><br />
+    <%= items_builder.label :color %>
+    <%= items_builder.text_field :color %><br />
+    <%= items_builder.label :rating %>
+    <%= items_builder.text_field :rating %><br />
+    <%= items_builder.label :price %>
+    <%= items_builder.text_field :price %><br />
+    <%= items_builder.label :comment %>
+    <%= items_builder.text_area :comment %><br />
+    <%= items_builder.collection_select(:category_id, Category.all, :id, :name) %>
+
+    <% end %>
+    <%= f.submit %>
   <% end %>
-  <p>add items</p>
+
 <!-- Need to make nested form to add items -->
 <!-- Need to think about what to do when Kit is already created and adding items -->

@@ -3,8 +3,7 @@
 <p>Items in your glam kit:</p>
 <ul>
   <% @kit.items.each do |i| %>
-  <li><%= i.name %> - <%= i.category.name %></li>
-
+  <li><%= i.name %> | <%= i.brand %></li>
 <% end %>
 </ul>
 
