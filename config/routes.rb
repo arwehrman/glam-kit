@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  get '/' => 'sessions#welcome', as: 'welcome'
+  get '/signin' => 'sessions#new', as: 'signin'
+  post '/signin' => 'sessions#create'
+  post '/signout' => 'sessions#destroy'
 
   resources :items
   resources :kits
-  resources :users, only: [:index, :new, :create]
-  resources :sessions, only: [:new, :create]
-  root 'sites#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users
+  
+
 end
