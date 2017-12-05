@@ -1,9 +1,12 @@
 <h1>Sign In or Sign Up Form</h1>
 <div>
-  <%= form_for :user, url: '/users' do |f| %>
-    Username: <%= f.text_field :username %>
-    Password: <%= f.password_field :password %>
-    Password Confirmation: <%= f.password_field :password_confirmation %>
+  <%= form_for(@user) do |f| %>
+
+     <label>Username:</label>
+     <%= f.text_field :username %><br />
+     <label>Password:</label>
+     <%= f.password_field :password %><br />
+
     <%= f.submit "Submit" %>
   <% end %>
 </div>
