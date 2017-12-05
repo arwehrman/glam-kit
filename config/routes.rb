@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :items
   resources :kits
-  resources :users
-  
+  resources :users, only: [:show, :new, :create, :edit]
+
 
 end

@@ -3,12 +3,6 @@
 <div>
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
 
-  <label>First Name: </label>
-  <%= text_field_tag 'user[first_name]' %><br><br>
-
-  <label>Last Name: </label>
-  <%= text_field_tag 'user[last_name]' %><br><br>
-
   <label>Username: </label>
   <%= text_field_tag 'user[username]' %><br><br>
 

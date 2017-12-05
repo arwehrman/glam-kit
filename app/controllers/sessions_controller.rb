@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
   def welcome
   end
 
@@ -7,9 +8,12 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:user][:username])
-    return redirect_to signin_path unless @user.authenticate(params[:user][:password])
-    session[:user_id] = @user.id
-    redirect_to user_path(@user)
+    if @user.authenticate(params[:user][:password])
+      redirect_to signin_path
+    else
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+    end
   end
 
   def destroy
