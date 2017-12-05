@@ -8,12 +8,10 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:user][:username])
-    if @user.authenticate(params[:user][:password])
-      redirect_to signin_path
-    else
+    #not sure about using the return, may need to refactor with if else
+    return redirect_to signin_path unless @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
       redirect_to user_path(@user)
-    end
   end
 
   def destroy
