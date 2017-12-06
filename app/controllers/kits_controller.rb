@@ -8,7 +8,7 @@ class KitsController < ApplicationController
     @kit = Kit.new
     3.times {@kit.items.build}
   end
-  
+
   def create
     @kit = Kit.new(kit_params)
     if @kit.save
@@ -20,6 +20,7 @@ class KitsController < ApplicationController
 
   def show
     @kit = Kit.find(params[:id])
+    require params.inspect
   end
 
 private
