@@ -1,5 +1,6 @@
 <h1>List of Kits</h1>
 
 <% @kits.each do |k| %>
-<div><%= link_to k.name, kit_path(k) %></div>
+
+<div><%= link_to k.name, user_kit_path(k) %></div>
 <% end %>
