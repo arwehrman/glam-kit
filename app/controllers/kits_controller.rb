@@ -1,8 +1,12 @@
 class KitsController < ApplicationController
 
   def index
-    @kits = Kit.all
+     if params[:user_id] && current_user
+    @kits = current_user.kits
+  else
+    "No Kits"
   end
+end
 
   def new
     @kit = Kit.new
@@ -12,7 +16,7 @@ class KitsController < ApplicationController
   def create
     @kit = Kit.new(kit_params)
     if @kit.save
-      redirect_to kit_path(@kit)  #redirect to show route
+      redirect_to user_kit_path(@kit)  #redirect to show route
     else
       render :new
     end

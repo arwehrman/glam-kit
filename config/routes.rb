@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   get '/signin' => 'sessions#new', as: 'signin'
   post '/signin' => 'sessions#create'
   post '/signout' => 'sessions#destroy'
-  
-  resources :items
-  resources :kits
-  resources :users
+
+  #resources :items
+  #resources :kits
+  resources :users do
+    resources :kits
+    resources :items
+  end
 
 end
