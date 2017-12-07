@@ -3,8 +3,11 @@
 <p>Items in your glam kit:</p>
 <ul>
   <% @kit.items.each do |i| %>
-  <li><%= i.name %> | <%= i.brand %></li>
+  <li><%= i.name %> - <%= i.brand %> | Edit | Delete</li>
 <% end %>
 </ul>
+<p>Link to Delete Kit</p>
+<p>Link to go back to Kits</p>
+
 
 <!-- Need to think about what information to display here. All item info?? -->

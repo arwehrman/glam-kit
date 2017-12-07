@@ -2,5 +2,5 @@
 
 <% @kits.each do |k| %>
 
-<div><%= link_to k.name, user_kit_path(current_user, k) %></div>
+<%= link_to k.name, user_kit_path(current_user, k) %><br><br>
 <% end %>
