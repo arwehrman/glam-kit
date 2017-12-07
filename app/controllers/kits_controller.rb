@@ -4,26 +4,34 @@ class KitsController < ApplicationController
      if params[:user_id] && current_user
     @kits = current_user.kits
   else
-    "No Kits"
+    #should be blank or maybe text saying No Kits
   end
 end
 
   def new
-    @kit = Kit.new
-    3.times {@kit.items.build}
+    if params[:user_id] && current_user
+      @kit = current_user.kits.build
+      3.times {@kit.items.build}
+    else
+    #not sure yet where I want this to go or if it really is needed
+    end
   end
 
   def create
-    @kit = Kit.new(kit_params)
+    @kit = current_user.kits.build(kit_params)
     if @kit.save
-      redirect_to user_kit_path(@kit)  #redirect to show route
+      redirect_to user_kit_path(current_user, @kit)
     else
       render :new
     end
   end
 
   def show
-    @kit = Kit.find(params[:id])
+    if params[:user_id] && current_user
+      @kit = current_user.kits.find(params[:id])
+    else
+      #no items in kit or just blank with option to add items
+    end
   end
 
 private
