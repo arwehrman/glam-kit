@@ -20,7 +20,6 @@ class KitsController < ApplicationController
 
   def show
     @kit = Kit.find(params[:id])
-    require params.inspect
   end
 
 private

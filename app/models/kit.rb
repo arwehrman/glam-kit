@@ -1,6 +1,7 @@
 class Kit < ApplicationRecord
   has_many :items
   belongs_to :user
+  has_many :categories, through: :items
 
   def items_attributes=(items_attributes)
 
