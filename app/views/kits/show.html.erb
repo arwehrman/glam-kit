@@ -1,11 +1,29 @@
-<h1>Kit Details</h1>
-<%= @kit.name %>
-<p>Items in your glam kit:</p>
-<ul>
-  <% @kit.items.each do |i| %>
-  <li><%= i.name %> - <%= i.brand %> | Edit | Delete</li>
-<% end %>
-</ul>
+<h1><%= @kit.name %></h1>
+
+<table style="width:75%">
+  <tr>
+    <th>Name</th>
+    <th>Brand</th>
+    <th>Color</th>
+    <th>Price</th>
+    <th>Rating</th>
+  </tr>
+
+  <tr>
+    <% @kit.items.each do |i| %>
+  </tr>
+  <tr>
+    <td><%= i.name %></td>
+    <td><%= i.brand %></td>
+    <td><%= i.color %></td>
+    <td><%= i.price %></td>
+    <td><%= i.rating %></td>
+      <td>edit</td>
+      <td>delete</td>
+  </tr>
+  <% end %>
+</table>
+
 <p>Link to Delete Kit</p>
 <p>Link to go back to Kits</p>
 
