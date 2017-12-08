@@ -1,0 +1,9 @@
+<h3>EDIT</h3>
+
+<br>
+
+<%= form_for @kit, url: user_kit_path(@kit.user, @kit), method: "patch" do |f| %>
+<p>Edit Kit Items</p>
+<%= render partial: "form", locals: {kit: @kit, user: @user, f: f} %>
+
+<% end %>
