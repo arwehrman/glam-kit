@@ -35,7 +35,10 @@ end
   end
 
   def edit
-    @kit = current_user.kits.find(params[:id])
+    if params[:user_id] && current_user
+    @kit = Kit.find_by(id: params[:id])
+    #@user = User.find(params[:id])
+    end
   end
 
   def update

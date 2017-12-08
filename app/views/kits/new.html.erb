@@ -16,11 +16,29 @@
 <h1>Add a New Kit Form</h1>
 <div>
 <%= form_for(@kit, url: user_kits_path) do |f| %>
-<!-- conditionally format these two fields -->
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
 
   <p>Add Item to Kit</p>
-  <%= render partial: "form", locals: {kit: @kit, user: @user, f: f} %>
+  <%= f.fields_for :items do |i| %>
+  <p>Item</p>
+    <%= i.label :name %>:
+    <%= i.text_field :name %><br>
+    <%= i.label :brand %>:
+    <%= i.text_field :brand %><br>
+    <%= i.label :color %>:
+    <%= i.text_field :color %><br>
+    <%= i.label :rating %>:
+    <%= i.text_field :rating %><br>
+    <%= i.label :price %>:
+    <%= i.text_field :price %><br>
+    <%= i.label :comment %>:
+    <%= i.text_area :comment %><br>
+    <%= i.label "Category" %>:
+    <%= i.collection_select(:category_id, Category.all, :id, :name, :prompt => true) %>
+    <!-- may need to refactor to remove directly pulling from model -->
+    <% end %>
+  <%= f.submit %>
+
 
 <% end %>
