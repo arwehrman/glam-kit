@@ -19,7 +19,8 @@
     <td><%= i.price %></td>
     <td><%= i.rating %></td>
       <td>edit</td>
-      <td>delete</td>
+    <td><!--%= link_to "Delete", user_kit_path(current_user, i.id), method: :delete %--></td> 
+
   </tr>
   <% end %>
 </table>

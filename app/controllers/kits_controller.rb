@@ -56,7 +56,7 @@ end
 
 private
   def kit_params
-    params.require(:kit).permit(:name, :user_id, :items_attributes => [:name, :brand, :color, :price, :rating, :comment, :category_id])
+    params.require(:kit).permit(:name, :user_id, :items_attributes => [:name, :brand, :color, :price, :rating, :comment, :category_id, :_destroy])
   end
 
 end

@@ -3,4 +3,6 @@ class User < ApplicationRecord
 
   has_many :kits
   has_many :items, through: :kits
+
+  validates :username, presence: true, uniqueness: true
 end

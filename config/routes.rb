@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   post '/signout' => 'sessions#destroy'
 
   resources :items
-  #resources :kits
   resources :users do
     resources :kits
   end
