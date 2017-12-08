@@ -11,7 +11,7 @@ end
   def new
     if params[:user_id] && current_user
       @kit = current_user.kits.build
-      3.times {@kit.items.build}
+    @kit.items.build
     else
     #not sure yet where I want this to go or if it really is needed
     end
