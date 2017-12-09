@@ -7,12 +7,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params[:user][:username])
-    if @user.authenticate(params[:user][:password])
+    if @user = User.find_by(username: params[:user][:username])
+    @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       redirect_to '/signin'
+      #render message on redirec to let person know
     end
   end
 
