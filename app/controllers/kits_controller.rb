@@ -42,9 +42,9 @@ end
   end
 
   def update
-    @kit = current_user.kits.find(params[:id])
-    if @kit.update(kit_params)
-      redirect_to user_kit_path(current_user, @kit)
+    @kit = Kit.find(params[:id])
+    if @kit.update_attributes(kit_params)
+      redirect_to @kit
     else
       render 'edit'
     end
@@ -59,7 +59,7 @@ end
 
 private
   def kit_params
-    params.require(:kit).permit(:name, :user_id, :items_attributes => [:name, :brand, :color, :price, :rating, :comment, :category_id, :_destroy])
+    params.require(:kit).permit(:name, :user_id, :items_attributes => [:id, :name, :brand, :color, :price, :rating, :comment, :category_id, :_destroy])
   end
 
 end

@@ -8,9 +8,12 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:user][:username])
-    return redirect_to signin_path unless @user.authenticate(params[:user][:password])
+    if @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      redirect_to user_path(@user) #successful sign redirects to user show page
+      redirect_to user_path(@user)
+    else
+      redirect_to '/signin'
+    end
   end
 
   def destroy
