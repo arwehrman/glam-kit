@@ -1,0 +1,14 @@
+<h1>Show Item Details</h1>
+<tr>
+  <% @item.each do |i| %>
+</tr>
+<tr>
+  <td><%= i.name %></td>
+  <td><%= i.brand %></td>
+  <td><%= i.color %></td>
+  <td><%= i.price %></td>
+  <td><%= i.rating %></td>
+    <td>edit</td>
+    <td>delete</td>
+</tr>
+<% end %>

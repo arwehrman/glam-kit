@@ -1,0 +1,17 @@
+<%= form_for @item do |i| %>
+  <%= i.label :name %>:
+  <%= i.text_field :name %><br>
+  <%= i.label :brand %>:
+  <%= i.text_field :brand %><br>
+  <%= i.label :color %>:
+  <%= i.text_field :color %><br>
+  <%= i.label :rating %>:
+  <%= i.text_field :rating %><br>
+  <%= i.label :price %>:
+  <%= i.text_field :price %><br>
+  <%= i.label :comment %>:
+  <%= i.text_area :comment %><br>
+  <%= i.label "Category" %>:
+  <%= i.collection_select(:category_id, Category.all, :id, :name, :prompt => true) %>
+  <!-- may need to refactor to remove directly pulling from model -->
+  <% end %>
