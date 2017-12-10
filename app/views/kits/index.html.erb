@@ -1,6 +1,13 @@
-<h3>List of Kits</h3>
 
-<% @kits.each do |k| %>
+<h3>Welcome <%= current_user.first_name %></h3>
 
-<%= link_to k.name, user_kit_path(current_user, k) %><br><br>
-<% end %>
+<h4>List of Kits</h3>
+
+<div>
+  <% @kits.each do |k| %>
+  <%= link_to k.name, user_kit_path(current_user, k) %><br><br>
+  <% end %>
+</div>
+
+<%= link_to 'Add a New Kit', new_user_kit_path(current_user) %>
+<%= link_to 'Sign Out', signout_path, method: :post %>

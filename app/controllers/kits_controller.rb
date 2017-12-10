@@ -3,6 +3,7 @@ class KitsController < ApplicationController
   def index
      if params[:user_id] && current_user
     @kits = current_user.kits
+    
   else
     #should be blank or maybe text saying No Kits
   end
