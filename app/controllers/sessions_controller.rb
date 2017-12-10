@@ -8,18 +8,14 @@ class SessionsController < ApplicationController
 
   def create
     if auth_hash = request.env["omniauth.auth"]
-      oauth_email = request.env["omniauth.auth"]["info"]["email"]
-      if @user = User.find_by(:email => oauth_email)
-        session[:user_id] = @user.id
-        redirect_to user_kits_path(@user)
-      else #create a new user with omniauth
-        @user = User.create(:email => oauth_email)
-        raise "New User logging in via FB".inspect
-        session[:user_id] = @user.id
-        redirect_to user_kits_path(@user)
+      @user = User.find_or_create_by(uid: auth['uid']) do |u|
+        u.name = auth['info']['name']
+        u.email = auth['info']['email']
+        u.image = auth['info']['image']
       end
+        session[:user_id] = @user.id
+        redirect_to user_kits_path(@user)
     else
-      #regular login
       @user = User.find_by(email: params[:user][:email])
       if @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
@@ -36,5 +32,9 @@ class SessionsController < ApplicationController
     redirect_to welcome_path
   end
 
+private
+  def auth
+    request.env['omniauth.auth']
+  end
 
 end
