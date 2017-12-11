@@ -1,6 +1,6 @@
 <h1>Sign In</h1>
 <div>
-<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
+<%= form_tag ({controller: 'sessions', action: 'login', method: 'post'}) do %>
 
   <label>Email: </label>
   <%= text_field_tag 'user[email]' %><br><br>

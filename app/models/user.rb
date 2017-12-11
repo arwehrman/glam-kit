@@ -13,4 +13,4 @@ class User < ApplicationRecord
         user.name = auth_hash.info.name
       end
   end
-  end
+end
