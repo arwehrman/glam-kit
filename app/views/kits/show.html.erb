@@ -18,7 +18,7 @@
     <td><%= i.color %></td>
     <td><%= i.price.to_f %></td> <!-- don't like the format need to change -->
     <td><%= i.rating %></td>
-      <td>edit</td> <!--this should be a link to edit item -->
+      <td><%= link_to "Edit", i, method: :edit %></td>
       <td><%= link_to "Delete", i, method: :delete, data: { confirm: "Really?" } %></td><!--this should be a link to edit item -->
   </tr>
   <% end %>

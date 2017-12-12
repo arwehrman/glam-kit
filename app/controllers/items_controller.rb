@@ -11,16 +11,23 @@ class ItemsController < ApplicationController
   end
 
   def show
-
+    @item = Item.find(params[:id])
   end
 
   def edit
-
+    @item = Item.find(params[:id])
   end
 
   def update
+    @item = Item.find(params[:id])
 
-  end
+        if @item.update_attributes(params[:item])
+          redirect_to user_kits_path(current_user)
+        else
+          redirect_to user_kits_path(current_user)
+        end
+    end
+
 
   def destroy
     Item.find(params[:id]).destroy
