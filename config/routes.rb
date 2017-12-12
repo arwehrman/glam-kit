@@ -4,12 +4,11 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#create'
 
   get '/signin' => 'sessions#new', as: 'signin'
-  #post '/signin' => 'sessions#create'
   post '/login' => 'sessions#login'
   post '/signout' => 'sessions#destroy'
 
   resources :items
-  resources :users do
+  resources :users, only: [:new, :show, :create]  do
     resources :kits
   end
 
