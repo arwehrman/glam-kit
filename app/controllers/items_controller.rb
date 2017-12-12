@@ -23,8 +23,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-
-
+    Item.find(params[:id]).destroy
+    redirect_to user_kits_path(current_user)
   end
 
 
