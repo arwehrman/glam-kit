@@ -11,8 +11,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @kit = Kit.find(params[:kit_id])
-    @item = Item.find(params[:id])
+
   end
 
   def edit
@@ -24,11 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @kit = Kit.find(params[:kit_id])
-    @item = Item.find(params[:id])
-    @item.destroy
 
-    redirect_to user_kit_path(@kit)
 
   end
 
