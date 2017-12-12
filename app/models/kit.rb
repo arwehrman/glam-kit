@@ -1,5 +1,5 @@
 class Kit < ApplicationRecord
-  has_many :items
+  has_many :items, dependent: :destroy
   belongs_to :user
   has_many :categories, through: :items
 
