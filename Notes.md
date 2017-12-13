@@ -50,5 +50,8 @@ User logs in /signin
 User's Kit /kits/:kit_id/items
   - list or table of item details
   - link to delete item
-  - link to edit item /kits/:kit_id/items/:id/edit
+    DELETE /kits/:kid_id/items/:id
+  - link to edit item
+    edit form GET /kits/:kit_id/items/:id/edit
+    submission PUT /kits/:kit_id/items/:id
   - link to delete entire kit

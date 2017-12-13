@@ -1,8 +1,12 @@
 class ItemsController < ApplicationController
 
+  def new
+    @item = Item.new
+  end
+
   def edit
     @item = Item.find(params[:id])
-    @kit = Kit.find(params[:id])
+  #need to get the kit-id to pull
   end
 
   def update
