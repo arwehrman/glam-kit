@@ -7,23 +7,26 @@ class KitsController < ApplicationController
   def new
     @kit = current_user.kits.build
     @kit.items.build
+
   end
 
   def create
     @kit = current_user.kits.build(kit_params)
     if @kit.save
-      redirect_to kit_path(current_user, @kit)
+      redirect_to kit_path(@kit)
     else
       render :new
     end
   end
 
   def show
-      @kit = current_user.kits.find(params[:id])
+    @kit = current_user.kits.find(params[:id])
   end
 
   def edit
+
     @kit = Kit.find_by(params[:id])
+
   end
 
   def update
