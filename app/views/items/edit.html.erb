@@ -14,6 +14,5 @@
   <%= f.text_area :comment %><br>
   <%= f.label "Category" %>:
   <%= f.collection_select(:category_id, Category.all, :id, :name, :prompt => true) %>
-  <!-- may need to refactor to remove directly pulling from model -->
 <%= f.submit %>
 <% end %>
