@@ -14,5 +14,6 @@
   <%= f.text_area :comment %><br>
   <%= f.label "Category" %>:
   <%= f.collection_select(:category_id, Category.all, :id, :name, :prompt => true) %>
+  <%= f.hidden_field :kit_id, :value => @kit.id %>
 <%= f.submit %>
 <% end %>

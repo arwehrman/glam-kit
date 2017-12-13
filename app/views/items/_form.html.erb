@@ -1,5 +1,4 @@
-<h3>Add a New Items</h3>
-<%= form_for(@item, url: new_kit_item_path) do |f| %>
+<%= form_for(@item) do |f| %>
   <%= f.label :name %>:
   <%= f.text_field :name %><br>
   <%= f.label :brand %>:
