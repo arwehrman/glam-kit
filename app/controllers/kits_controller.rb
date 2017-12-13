@@ -1,44 +1,29 @@
 class KitsController < ApplicationController
 
   def index
-     if params[:user_id] && current_user
     @kits = current_user.kits
-
-  else
-    #should be blank or maybe text saying No Kits
   end
-end
 
   def new
-    if params[:user_id] && current_user
-      @kit = current_user.kits.build
+    @kit = current_user.kits.build
     @kit.items.build
-    else
-    #not sure yet where I want this to go or if it really is needed
-    end
   end
 
   def create
     @kit = current_user.kits.build(kit_params)
     if @kit.save
-      redirect_to user_kit_path(current_user, @kit)
+      redirect_to kit_path(current_user, @kit)
     else
       render :new
     end
   end
 
   def show
-    if params[:user_id] && current_user
       @kit = current_user.kits.find(params[:id])
-    else
-      #no items in kit or just blank with option to add items
-    end
   end
 
   def edit
-    if params[:user_id] && current_user
-    @kit = Kit.find_by(id: params[:id])
-    end
+    @kit = Kit.find_by(params[:id])
   end
 
   def update
@@ -53,7 +38,7 @@ end
   def destroy
     @kit = current_user.kits.find(params[:id])
     @kit.destroy
-    redirect_to user_kits_path(current_user)
+    redirect_to kits_path(current_user)
   end
 
 

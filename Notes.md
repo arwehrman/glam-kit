@@ -42,7 +42,7 @@ Models
 
 
 User logs in /signin
-  - directed to User profile ??? /user/:id
+  - directed to User profile ??? /user/:id or /kits
   - profile page has list of user's kits
   - link to add a new kit /kits/new
   - link to sign out

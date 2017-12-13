@@ -5,9 +5,9 @@
 
 <div>
   <% @kits.each do |k| %>
-  <%= link_to k.name, user_kit_path(current_user, k) %><br><br>
+  <%= link_to k.name, kit_path(k) %><br><br>
   <% end %>
 </div>
 
-<%= link_to 'Add a New Kit', new_user_kit_path(current_user) %><br>
+<%= link_to 'Add a New Kit', new_kit_path(current_user) %><br>
 <%= link_to 'Sign Out', signout_path, method: :post %>

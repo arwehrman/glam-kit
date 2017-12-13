@@ -18,11 +18,11 @@
     <td><%= i.color %></td>
     <td><%= i.price.to_f %></td> <!-- don't like the format need to change -->
     <td><%= i.rating %></td>
-      <td><%= link_to "Edit", i, method: :edit %></td>
-      <td><%= link_to "Delete", i, method: :delete, data: { confirm: "Really?" } %></td><!--this should be a link to edit item -->
+      <td><%= link_to "Edit", edit_kit_item_path(i) %></td>
+      <td>Delete</td><!--this should be a link to edit item -->
   </tr>
   <% end %>
 </table>
 <p>Link to add another item</p><!--need link to add another item -->
-<%= link_to "Delete Kit", user_kit_path(current_user, @kit), method: :delete, data: { confirm: "Are you sure?" }  %>
-<%= link_to "Go Back to Kits", user_kits_path(current_user) %><br><br>
+<%= link_to "Delete Kit", kit_path(@kit), method: :delete, data: { confirm: "Are you sure?" }  %>
+<%= link_to "Go Back to Kits", kits_path %><br><br>
