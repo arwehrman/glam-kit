@@ -1,20 +1,19 @@
 <h3>EDIT</h3>
-<%= form_for(@item, url: edit_item_path) %>
-  <%= label :name %>:
-  <%= text_field :name %><br>
-  <%= label :brand %>:
-  <%= text_field :brand %><br>
-  <%= label :color %>:
-  <%= text_field :color %><br>
-  <%= label :rating %>:
-  <%= text_field :rating %><br>
-  <%= label :price %>:
-  <%= text_field :price %><br>
-  <%= label :comment %>:
-  <%= text_area :comment %><br>
-  <%= label "Category" %>:
-  <%= @item.collection_select(:category_id, Category.all, :id, :name, :prompt => true) %>
+<%= form_for(@item, url: edit_kit_item_path) do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br>
+  <%= f.label :brand %>:
+  <%= f.text_field :brand %><br>
+  <%= f.label :color %>:
+  <%= f.text_field :color %><br>
+  <%= f.label :rating %>:
+  <%= f.text_field :rating %><br>
+  <%= f.label :price %>:
+  <%= f.text_field :price %><br>
+  <%= f.label :comment %>:
+  <%= f.text_area :comment %><br>
+  <%= f.label "Category" %>:
+  <%= f.collection_select(:category_id, Category.all, :id, :name, :prompt => true) %>
   <!-- may need to refactor to remove directly pulling from model -->
-  <% end %>
 <%= f.submit %>
 <% end %>
