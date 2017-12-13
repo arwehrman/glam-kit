@@ -4,22 +4,17 @@ Glam Kit
     create a glam kit
       - add items to kit
       - can rate items in kit
-      - can add other users items to kit
-    see other user's items & ratings
 
 Models
   Kit
     belongs_to user
     has_many items
-    has_many categories through :items?
-
+    has_many categories through :items
 
   Item
     belongs_to category
     belongs_to kit
     belongs_to user
-
-    What makes an Item?
       - name
       - brand
       - color
@@ -31,13 +26,12 @@ Models
 
   Category
     has_many items
-    has_many kits through items?
+    has_many kits through items
       - name
 
     create seed data for Category
+    User can't add a category, only select from drop down
 
-  Users can't add, only select from drop down
-      - name
 
   Users
     has_many kits

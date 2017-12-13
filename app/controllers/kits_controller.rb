@@ -3,7 +3,7 @@ class KitsController < ApplicationController
   def index
      if params[:user_id] && current_user
     @kits = current_user.kits
-    
+
   else
     #should be blank or maybe text saying No Kits
   end
@@ -38,7 +38,6 @@ end
   def edit
     if params[:user_id] && current_user
     @kit = Kit.find_by(id: params[:id])
-    #@user = User.find(params[:id])
     end
   end
 

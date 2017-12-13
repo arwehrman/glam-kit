@@ -8,6 +8,9 @@ class ItemsController < ApplicationController
   end
 
   def create
+    @item = current_user.kits.build(kit_params)
+
+
   end
 
   def show
@@ -37,6 +40,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
+
   end
 
 

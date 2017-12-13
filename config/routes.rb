@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#login'
   post '/signout' => 'sessions#destroy'
 
-  resources :items
-  resources :users, only: [:new, :show, :create]  do
-    resources :kits
-  end
+
+  resources :users, only: [:new, :show, :create]
+    resources :kits do
+      resources :items
+    end
 
 
 end
