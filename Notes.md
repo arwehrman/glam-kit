@@ -41,13 +41,14 @@ Models
       - password (probably password_digest)
 
 
-User logs in signin_path
-  - directed to User profile
+User logs in /signin
+  - directed to User profile ??? /user/:id
   - profile page has list of user's kits
   - link to add a new kit /kits/new
   - link to sign out
 
 User's Kit /kits/:kit_id/items
-  - list of items in kit
+  - list or table of item details
   - link to delete item
   - link to edit item /kits/:kit_id/items/:id/edit
+  - link to delete entire kit
