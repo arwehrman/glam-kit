@@ -32,7 +32,6 @@ Models
     create seed data for Category
     User can't add a category, only select from drop down
 
-
   Users
     has_many kits
     has_many items through kit
@@ -40,3 +39,15 @@ Models
       - name
       - email
       - password (probably password_digest)
+
+
+User logs in signin_path
+  - directed to User profile
+  - profile page has list of user's kits
+  - link to add a new kit /kits/new
+  - link to sign out
+
+User's Kit /kits/:kit_id/items
+  - list of items in kit
+  - link to delete item
+  - link to edit item /kits/:kit_id/items/:id/edit
