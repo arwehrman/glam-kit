@@ -1,5 +1,5 @@
 <h3>EDIT</h3>
-<%= form_for(@kit, url: edit_user_kit_path) do |f| %>
+<%= form_for(@kit, url: edit_kit_path) do |f| %>
 <%= f.fields_for :items do |i| %>
 <p>Item</p>
   <%= i.label :name %>:

@@ -7,7 +7,6 @@ class KitsController < ApplicationController
   def new
     @kit = current_user.kits.build
     @kit.items.build
-
   end
 
   def create
@@ -24,9 +23,7 @@ class KitsController < ApplicationController
   end
 
   def edit
-
     @kit = Kit.find_by(params[:id])
-
   end
 
   def update
