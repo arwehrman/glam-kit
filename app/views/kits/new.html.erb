@@ -15,7 +15,7 @@
 
 <h1>Add a New Kit Form</h1>
 <div>
-<%= form_for(@kit, url: kits_path) do |f| %>
+<%= form_for(@kit) do |f| %>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
 

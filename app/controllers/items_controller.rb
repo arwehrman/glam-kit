@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-#need the kit_id to associate items with a kit
   def new
     @kit = Kit.find(params[:kit_id])
     @item = Item.new
@@ -8,18 +7,24 @@ class ItemsController < ApplicationController
   def edit
     @kit = Kit.find(params[:kit_id])
     @item = Item.find(params[:id])
-  #need to get the kit-id to pull
+
   end
 
   def create
     @item = Item.new(item_params)
-    @item.save
+    if @item.save
+      redirect_to kits_path(current_user)
+    else
+      render :new
+    end
   end
 
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
-
+    if @item.save
+    redirect_to kits_path(current_user)
+    end
   end
 
   def destroy
