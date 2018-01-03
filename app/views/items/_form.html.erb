@@ -6,7 +6,7 @@
   <%= f.label :color %>:
   <%= f.text_field :color %><br>
   <%= f.label :rating %>:
-  <%= f.text_field :rating %><br>
+  <%= f.select :rating, (1..5)%><br>
   <%= f.label :price %>:
   <%= f.text_field :price %><br>
   <%= f.label :comment %>:
