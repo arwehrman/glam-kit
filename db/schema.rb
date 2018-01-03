@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211001009) do
+ActiveRecord::Schema.define(version: 20180103014452) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20171211001009) do
     t.string "name"
     t.string "brand"
     t.string "color"
-    t.integer "price"
+    t.decimal "price", precision: 6, scale: 2
     t.integer "rating"
     t.text "comment"
     t.integer "category_id"
