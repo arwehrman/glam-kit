@@ -1,10 +1,11 @@
 <h1><%= @kit.name %></h1>
 
-<table style="width:75%">
+<table>
   <tr>
     <th>Name</th>
     <th>Brand</th>
     <th>Color</th>
+    <th>Category</th>
     <th>Price</th>
     <th>Rating</th>
   </tr>
@@ -16,7 +17,8 @@
     <td><%= i.name %></td>
     <td><%= i.brand %></td>
     <td><%= i.color %></td>
-    <td><%= i.price.to_f %></td> <!-- don't like the format need to change -->
+    <td>category</td>
+    <td>$ <%= i.price.to_f %></td> <!-- don't like the format need to change -->
     <td><%= i.rating %></td>
       <td><%= link_to "Edit", edit_kit_item_path(@kit, i) %></td>
       <td><%= link_to "Delete", kit_item_path(@kit, i), method: :delete, data: { confirm: "Are you sure?" } %>
