@@ -32,7 +32,7 @@ class KitsController < ApplicationController
     if @kit.update_attributes(kit_params)
       redirect_to @kit
     else
-      render 'edit'
+      render :edits
     end
   end
 

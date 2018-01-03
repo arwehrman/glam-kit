@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  #before_action :set_kit
 
   def new
     @kit = Kit.find(params[:kit_id])
@@ -7,15 +6,13 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    raise params.inspect
-
     @kit = Kit.find(params[:kit_id])
     @item = Item.find(params[:id])
   end
 
   def create
     @kit = Kit.find(params[:kit_id])
-    @item = Item.new(item_params)
+    @item = @kit.items.build(item_params)
     if @item.valid?
       @item.save
       redirect_to kit_path(@kit)
@@ -28,16 +25,17 @@ class ItemsController < ApplicationController
     @kit = Kit.find(params[:kit_id])
     @item = Item.find(params[:id])
     @item.update(item_params)
-    if @item.save
-      redirect_to kits_path(current_user)
-    end
-    redirect_to kit_path(@kit)
+      if @item.save
+        redirect_to kit_path(@kit)
+      else
+        render :edit
+      end
   end
 
   def destroy
+    @kit = Kit.find(params[:kit_id])
     Item.find(params[:id]).destroy
-    #change the redirect to kit show page not index
-    redirect_to kits_path(current_user)
+    redirect_to kit_path(@kit)
   end
 
   private
