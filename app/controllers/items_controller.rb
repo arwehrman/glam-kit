@@ -1,5 +1,9 @@
 class ItemsController < ApplicationController
 
+  def index
+    @items = Item.all
+  end
+  
   def new
     @kit = Kit.find(params[:kit_id])
     @item = Item.new

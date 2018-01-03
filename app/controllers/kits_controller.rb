@@ -6,8 +6,7 @@ class KitsController < ApplicationController
 
   def new
     @kit = current_user.kits.build
-    3.times do @kit.items.build
-    end
+    @kit.items.build
   end
 
   def create

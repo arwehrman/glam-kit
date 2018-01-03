@@ -1,0 +1,27 @@
+<h1>List of all Items</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Brand</th>
+    <th>Color</th>
+    <th>Category</th>
+    <th>Price</th>
+    <th>Rating</th>
+  </tr>
+
+  <tr>
+    <% @items.each do |i| %>
+  </tr>
+  <tr>
+    <td><%= i.name %></td>
+    <td><%= i.brand %></td>
+    <td><%= i.color %></td>
+    <td><%= i.category.name %></td>
+    <td><%= number_to_currency(i.price) %></td> <!-- don't like the format need to change -->
+    <td><%= i.rating %></td>
+    <td><%= i.comment %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= link_to "Go Back to Kits", kits_path %><br><br>

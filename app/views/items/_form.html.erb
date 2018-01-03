@@ -1,3 +1,18 @@
+<% if @item.errors.any? %>
+  <div id="error_explanation">
+    <h3>
+      <%= pluralize(@item.errors.count, "error") %>
+      prohibited this glam kit from being saved:
+    </h3>
+
+    <ul>
+    <% @item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for [@kit, @item] do |f| %>
   <%= f.label :name %>:
   <%= f.text_field :name %><br>
