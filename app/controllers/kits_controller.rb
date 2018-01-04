@@ -1,6 +1,6 @@
 class KitsController < ApplicationController
  before_action :authenticate_user!
- 
+
   def index
     @kits = current_user.kits
   end
@@ -39,6 +39,7 @@ class KitsController < ApplicationController
   def destroy
     @kit = current_user.kits.find(params[:id])
     @kit.destroy
+    flash[:success] = "Kit has been deleted"
     redirect_to kits_path(current_user)
   end
 

@@ -1,27 +1,20 @@
-<h1>List of all Items</h1>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Brand</th>
-    <th>Color</th>
-    <th>Category</th>
-    <th>Price</th>
-    <th>Rating</th>
-  </tr>
+<!-- app/views/posts/index.html.erb -->
 
-  <tr>
-    <% @items.each do |i| %>
-  </tr>
-  <tr>
-    <td><%= i.name %></td>
-    <td><%= i.brand %></td>
-    <td><%= i.color %></td>
-    <td><%= i.category.name %></td>
-    <td><%= number_to_currency(i.price) %></td> <!-- don't like the format need to change -->
-    <td><%= i.rating %></td>
-    <td><%= i.comment %></td>
-  </tr>
+<h1>All Items</h1>
+<div>
+  <h3>Filter posts:</h3>
+  <%= form_tag("/items", method: "get") do %>
+    <%= select_tag "category", options_from_collection_for_select(@categories, "id", "name"), include_blank: true %>
+    <%= select_tag "rating", options_for_select([1, 2, 3, 4, 5]), include_blank: true %>
+    <%= submit_tag "Filter" %>
   <% end %>
-</table>
+</div>
+<% @items.each do |i| %>
+  <div>
+    <p><%= i.name %></p>
+    <p><%= i.category.name %></p>
+    </p><%= i.rating %></p>
+  </div>
+<% end %>
 
 <%= link_to "Go Back to Kits", kits_path %><br><br>

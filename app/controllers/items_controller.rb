@@ -1,8 +1,16 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
-    @items = Item.all
+    @categories = Category.all
+
+    if !params[:rating].blank?
+      @items = Item.by_rating(params[:rating])
+    elsif !params[:category].blank?
+      @items = Item.by_category(params[:category])
+    else
+      @items = Item.all
+    end
   end
 
   def new
