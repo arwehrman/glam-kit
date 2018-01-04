@@ -8,7 +8,7 @@ class Item < ApplicationRecord
 
 #create a method sorting items by category
   def self.by_category(category_id)
-    where(cateory_id)
+    where(category: category_id)
   end
 
 #create a method sorting items by Rating
