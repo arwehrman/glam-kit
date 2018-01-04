@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :items, through: :kits
 
   validates :email, presence: true, uniqueness: true
+  validates :password, presence: true, length: {minimum: 6}
 
   def self.find_or_create_by_omniauth(auth_hash)
     oauth_email = auth_hash["info"]["email"]

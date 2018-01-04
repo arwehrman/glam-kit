@@ -4,6 +4,7 @@ class Item < ApplicationRecord
   has_many :users, through: :kits
 
   validates :rating, inclusion: { in: 1..5 }
+  validates :name, presence: true
 
 
 end
