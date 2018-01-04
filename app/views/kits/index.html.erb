@@ -1,13 +1,15 @@
 
 <h3>Welcome <%= current_user.name %></h3>
 
-<h4>List of Kits</h3>
+<h4>You have a total of <%= @kits.count %> kits</h3>
 
 <div>
+  <p>Please select a kit from below to see more details</p>
   <% @kits.each do |k| %>
   <%= link_to k.name, kit_path(k) %><br><br>
   <% end %>
 </div>
 
 <%= link_to 'Add a New Kit', new_kit_path%><br>
-<%= link_to 'Sign Out', signout_path, method: :post %>
+<%= link_to 'Sign Out', signout_path, method: :post %><br>
+<p>Check out other users items and ratings: <%= link_to 'See all Items', items_path%> </p>

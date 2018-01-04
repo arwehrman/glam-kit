@@ -14,11 +14,13 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @categories = Category.all
     @kit = Kit.find(params[:kit_id])
     @item = Item.new
   end
 
   def edit
+    @categories = Category.all
     @kit = Kit.find(params[:kit_id])
     @item = Item.find(params[:id])
   end

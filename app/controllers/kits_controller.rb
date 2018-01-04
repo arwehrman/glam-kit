@@ -6,6 +6,7 @@ class KitsController < ApplicationController
   end
 
   def new
+    @categories = Category.all
     @kit = current_user.kits.build
     @kit.items.build
   end

@@ -21,12 +21,12 @@
   <%= f.label :color %>:
   <%= f.text_field :color %><br>
   <%= f.label :rating %>:
-  <%= f.select :rating, (1..5)%><br>
+  <%= f.select :rating, (1..5), include_blank: true%><br>
   <%= f.label :price %>:
   <%= f.text_field :price %><br>
   <%= f.label :comment %>:
   <%= f.text_area :comment %><br>
   <%= f.label "Category" %>:
-  <%= f.collection_select(:category_id, Category.all, :id, :name, :prompt => true) %><br>
+  <%= f.collection_select(:category_id, @categories, :id, :name, :prompt => true) %><br>
 <%= f.submit %>
 <% end %>
