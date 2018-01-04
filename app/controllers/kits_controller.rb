@@ -1,5 +1,6 @@
 class KitsController < ApplicationController
-
+ before_action :authenticate_user!
+ 
   def index
     @kits = current_user.kits
   end
