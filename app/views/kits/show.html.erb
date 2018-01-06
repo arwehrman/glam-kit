@@ -25,6 +25,7 @@
   </tr>
   <% end %>
 </table>
+<br>
 
 <%= link_to "Add Item", new_kit_item_path(@kit) %>
 <%= link_to "Delete Kit", kit_path(@kit), method: :delete, data: { confirm: "Are you sure?" } %>

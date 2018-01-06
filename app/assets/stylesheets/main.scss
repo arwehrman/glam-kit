@@ -1,7 +1,8 @@
 header {
-  padding: 5px;
+  padding: 20px;
   background: black;
   color:white;
+  font: 30px arial, sans-serif;
 }
 
 footer {
@@ -30,4 +31,12 @@ td, th {
 
 div.field_with_errors input[type="text"]{
   border: 1px solid red;
+}
+
+img {
+    display: block;
+    width: 50%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto
 }
