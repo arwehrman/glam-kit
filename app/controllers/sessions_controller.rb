@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def new
+
   end
 
   def create
@@ -20,7 +21,8 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to kits_path
     else
-      redirect_to '/signin'
+      flash.now[:error] = "Invalid username/password"
+      render :new
     end
   end
 

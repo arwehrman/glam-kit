@@ -1,3 +1,17 @@
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h3>Please fix the following
+      <%= pluralize(@user.errors.count, "error") %>
+    :</h3>
+
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h1>Sign Up</h1>
 
 <div>
@@ -15,3 +29,6 @@
   <%= f.submit %>
 <% end %>
 </div>
+
+<%= link_to 'Home', '/' %><br>
+<%= link_to 'Sign Up', new_user_path %><br>
