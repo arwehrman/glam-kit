@@ -1,5 +1,5 @@
 <h1><%= @kit.name %></h1>
-<p><%= @kit.items.count %> items in this kit</p>
+<p><%= pluralize(@kit.items.count, "item")%> in this kit</p>
 <table>
   <tr>
     <th>Name</th>
@@ -8,6 +8,7 @@
     <th>Category</th>
     <th>Price</th>
     <th>Rating</th>
+    <th>Comment</th>
   </tr>
 
   <tr>
@@ -20,6 +21,7 @@
     <td><%= i.category.name %></td>
     <td><%= number_to_currency(i.price) %></td> <!-- don't like the format need to change -->
     <td><%= i.rating %></td>
+    <td><%= i.comment %></td>
     <td><%= link_to "Edit", edit_kit_item_path(@kit, i) %></td>
     <td><%= link_to "Delete", kit_item_path(@kit, i), method: :delete, data: { confirm: "Are you sure?" } %>
   </tr>
