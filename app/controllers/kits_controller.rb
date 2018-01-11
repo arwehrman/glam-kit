@@ -12,6 +12,7 @@ class KitsController < ApplicationController
   end
 
   def create
+    @categories = Category.all
     @kit = current_user.kits.build(kit_params)
     if @kit.save
       redirect_to kit_path(@kit)

@@ -1,8 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :kit
   belongs_to :category
-
-
+  
   validates :rating, inclusion: { in: 1..5 }
   validates :name, presence: true
 
