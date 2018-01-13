@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    @categories = Category.all
     @kit = Kit.find(params[:kit_id])
     @item = @kit.items.build(item_params)
     if @item.valid?

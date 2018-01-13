@@ -1,10 +1,9 @@
 <% if @item.errors.any? %>
   <div id="error_explanation">
-    <h3>
-      <%= pluralize(@item.errors.count, "error") %>
-      prohibited this item from being added to kit:
-    </h3>
-
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@item.errors.count, "error") %>.
+      Please fix and submit again.
+    </div>
     <ul>
     <% @item.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
