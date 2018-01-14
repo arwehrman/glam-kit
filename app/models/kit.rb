@@ -4,7 +4,6 @@ class Kit < ApplicationRecord
   has_many :categories, through: :items
 
   validates :name, presence: true
-  
 
   def items_attributes=(items_attributes)
     items_attributes.each do |i, item_attributes|
