@@ -12,6 +12,6 @@ class User < ApplicationRecord
     where(:email => oauth_email).first_or_create do |user|
         user.password = SecureRandom.hex
         user.name = auth_hash.info.name
-      end
+    end
   end
 end
