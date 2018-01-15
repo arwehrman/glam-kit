@@ -21,9 +21,9 @@
   <%= f.label :name %> * :
   <%= f.text_field :name %><br>
 
-  <p>Add Item to Kit</p>
+  <p>Please add your first item to the GlamKit. You can add more
+     items after the kit has been created with the initial item.</p>
   <%= f.fields_for :items do |i| %>
-  <p>You can add more items after kit has been created with initial item.</p>
     <%= i.label :name %> * :
     <%= i.text_field :name %><br>
     <%= i.label :brand %>:

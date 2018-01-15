@@ -4,7 +4,7 @@
 <h4>You have a total of <%= pluralize(@kits.count, "kit") %></h4>
 
 <div>
-  <p>Please select a kit from below to see more details</p>
+  <p>Please select a kit from below to see more details.</p>
   <% @kits.each do |k| %>
   <%= link_to k.name, kit_path(k) %><br><br>
   <% end %>
