@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:user][:email])
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      redirect_to kits_path
+      redirect_to kits_path(@user)
     else
       flash.now[:error] = "Invalid username/password"
       render :new
@@ -28,6 +28,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:user_id)
+    @current_user = nil
     redirect_to welcome_path
   end
 
