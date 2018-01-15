@@ -41,7 +41,7 @@ class KitsController < ApplicationController
   def destroy
     @kit = current_user.kits.find(params[:id])
     @kit.destroy
-    redirect_to kits_path(current_user)
+    redirect_to kits_path
   end
 
 

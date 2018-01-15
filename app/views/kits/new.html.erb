@@ -15,14 +15,16 @@
 
 <h1>Add a New Kit Form</h1>
 <div>
+  <p>Fields marked with * are required to be filled in. The kit will not be created
+    unless these fields are filled in.</p>
 <%= form_for(@kit) do |f| %>
-  <%= f.label :name %><br>
+  <%= f.label :name %> * :
   <%= f.text_field :name %><br>
 
   <p>Add Item to Kit</p>
   <%= f.fields_for :items do |i| %>
   <p>You can add more items after kit has been created with initial item.</p>
-    <%= i.label :name %>:
+    <%= i.label :name %> * :
     <%= i.text_field :name %><br>
     <%= i.label :brand %>:
     <%= i.text_field :brand %><br>
@@ -32,9 +34,9 @@
     <%= i.select :rating, (1..5), include_blank: true %><br>
     <%= i.label :price %>:
     <%= i.text_field :price %><br>
-    <%= i.label :comment %>:
+    <%= i.label :comment %>:<br>
     <%= i.text_area :comment %><br>
-    <%= i.label "Category" %>:
+    <%= i.label "Category" %> * :
     <%= i.collection_select(:category_id, @categories, :id, :name, :prompt => true) %>
     <% end %>
   <%= f.submit %>
