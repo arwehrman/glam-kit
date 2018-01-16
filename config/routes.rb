@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/signin' => 'sessions#new', as: 'signin'
   post '/login' => 'sessions#login'
-  post '/signout' => 'sessions#destroy'
+  delete '/signout' => 'sessions#destroy'
 
   resources :items, only: [:index]
 
