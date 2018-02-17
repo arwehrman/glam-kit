@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  has_many :kits, through: :kit_item
+  has_many :kits, through: :kit_items
   belongs_to :category
 
   validates :name, presence: true
