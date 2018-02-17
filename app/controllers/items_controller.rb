@@ -13,6 +13,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def highest_rated
+    @items = Item.highest_rated
+  end
+
   def new
     @categories = Category.all
     @kit = Kit.find(params[:kit_id])

@@ -1,0 +1,24 @@
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Brand</th>
+    <th>Color</th>
+    <th>Category</th>
+    <th>Price</th>
+    <th>Rating</th>
+    <th>Comments</th>
+  </tr>
+  <tr>
+    <% @items.each do |i| %>
+  </tr>
+  <td><%= i.name %></td>
+  <td><%= i.brand %></td>
+  <td><%= i.color %></td>
+  <td><%= i.category.name %></td>
+  <td><%= number_to_currency(i.price) %></td>
+  <td><%= i.rating %></td>
+  <td><%= i.comment %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get '/' => 'sessions#welcome', as: 'welcome'
-
+  get '/highest_rated'=> 'items#highest_rated', as: 'highest_rated'
   get '/auth/facebook/callback' => 'sessions#create'
 
   get '/signin' => 'sessions#new', as: 'signin'

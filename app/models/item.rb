@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :kit
   belongs_to :category
-  
+
   validates :name, presence: true
 
   def self.by_category(category_id)
@@ -10,5 +10,9 @@ class Item < ApplicationRecord
 
   def self.by_rating(rating)
     where(rating: rating)
+  end
+
+  def self.highest_rated
+    where(rating:  5)
   end
 end
