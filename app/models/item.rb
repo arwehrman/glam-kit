@@ -1,8 +1,8 @@
 class Item < ApplicationRecord
   has_many :kit_items
-  has_many :kits, through: :kit_items  
+  has_many :kits, through: :kit_items
   belongs_to :category
-
+  has_many :rate_comments
   validates :name, presence: true
 
   def self.by_category(category_id)

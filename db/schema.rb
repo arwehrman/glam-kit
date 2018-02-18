@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180217221805) do
+ActiveRecord::Schema.define(version: 20180218025008) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -23,8 +23,6 @@ ActiveRecord::Schema.define(version: 20180217221805) do
     t.string "brand"
     t.string "color"
     t.decimal "price", precision: 6, scale: 2
-    t.integer "rating"
-    t.text "comment"
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,6 +38,15 @@ ActiveRecord::Schema.define(version: 20180217221805) do
   create_table "kits", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rate_comments", force: :cascade do |t|
+    t.integer "rating"
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
