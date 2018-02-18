@@ -4,9 +4,6 @@
   <%= form_tag("/items", method: "get") do %>
     <%= label_tag "Category" %>
     <%= select_tag "category", options_from_collection_for_select(@categories, "id", "name"), include_blank: true %>
-    <%= label_tag "Rating" %>
-    <%= select_tag "rating", options_for_select([1, 2, 3, 4, 5]), include_blank: true %>
-    <%= submit_tag "Filter" %>
   <% end %>
 </div>
 <br>

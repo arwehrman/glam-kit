@@ -47,7 +47,7 @@ class KitsController < ApplicationController
 
 private
   def kit_params
-    params.require(:kit).permit(:id, :name, :user_id, :items_attributes => [:id, :name, :brand, :color, :price, :rating, :comment, :category_id, :_destroy])
+    params.require(:kit).permit(:id, :name, :user_id, :items_attributes => [:id, :name, :brand, :color, :price, :category_id, :_destroy])
   end
 
 end
