@@ -32,6 +32,8 @@
     <%= i.text_field :color %><br>
     <%= i.label :price %>:
     <%= i.text_field :price %><br>
+    <%= i.label :comment %><br>
+    <%= i.comment :comment %><br>
     <%= i.label "Category" %> * :
     <%= i.collection_select(:category_id, @categories, :id, :name, :prompt => true) %>
     <% end %>

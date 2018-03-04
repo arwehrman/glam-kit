@@ -6,6 +6,7 @@
     <th>Color</th>
     <th>Category</th>
     <th>Price</th>
+    <th>Comment</th>
   </tr>
   <tr>
     <% @items.each do |i| %>
@@ -15,6 +16,7 @@
   <td><%= i.color %></td>
   <td><%= i.category.name %></td>
   <td><%= number_to_currency(i.price) %></td>
+  <td><%= i.comment %></td>
   </tr>
 <% end %>
 </table>

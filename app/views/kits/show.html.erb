@@ -7,6 +7,7 @@
     <th>Color</th>
     <th>Category</th>
     <th>Price</th>
+    <th>Comment</th>
   </tr>
 
   <tr>
@@ -18,6 +19,7 @@
     <td><%= i.color %></td>
     <td><%= i.category.name %></td>
     <td><%= number_to_currency(i.price) %></td>
+    <td><%= i.comment%></td>
     <td><%= link_to "Edit", edit_kit_item_path(@kit, i) %></td>
     <td><%= link_to "Delete", kit_item_path(@kit, i), method: :delete, data: { confirm: "Are you sure?" } %>
   </tr>
