@@ -20,13 +20,20 @@ table {
     width: 100%;
 }
 
+th {
+   border: 1px solid #dddddd;
+   text-align: center;
+   padding: 8px;
+   background-color: #7f1ae5;
+   color: white;
+}
 
-td, th {
+td {
     border: 1px solid #dddddd;
     text-align: center;
     padding: 8px;
-
 }
+
 
 /* errors */
 div.field_with_errors input[type="text"]{
