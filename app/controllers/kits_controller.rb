@@ -25,6 +25,11 @@ class KitsController < ApplicationController
     @kit = current_user.kits.find(params[:id])
   end
 
+  def details
+    kit = Kit.find(params[:id])
+    render plain: kit.name
+  end
+
   def edit
     @kit = Kit.find_by(params[:id])
   end

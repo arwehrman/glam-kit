@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get '/' => 'sessions#welcome', as: 'welcome'
   get '/highest_rated'=> 'items#highest_rated', as: 'highest_rated'
   get '/auth/facebook/callback' => 'sessions#create'
-
+  get '/kits/:id/details', to:'kits#details'
   get '/signin' => 'sessions#new', as: 'signin'
   post '/login' => 'sessions#login'
   delete '/signout' => 'sessions#destroy'
