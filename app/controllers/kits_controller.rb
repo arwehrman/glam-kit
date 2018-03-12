@@ -26,8 +26,8 @@ class KitsController < ApplicationController
   end
 
   def details
-    kit = Kit.find(params[:id])
-    render plain: kit.name
+    @kit = current_user.kits.find(params[:id])
+    render json: @kit
   end
 
   def edit

@@ -13,7 +13,8 @@ gem 'pry'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
-
+gem 'jquery-rails'
+gem 'active_model_serializers'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
