@@ -2,6 +2,7 @@
 <p><%= pluralize(@kit.items.count, "item")%> in this kit</p>
 <table>
   <tr>
+    <th>ID</th>
     <th>Name</th>
     <th>Brand</th>
     <th>Color</th>
@@ -15,6 +16,7 @@
     <% @kit.items.each do |i| %>
   </tr>
   <tr>
+    <td><%= i.id %></td>
     <td><%= i.name %></td>
     <td><%= i.brand %></td>
     <td><%= i.color %></td>

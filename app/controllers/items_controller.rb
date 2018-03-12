@@ -41,6 +41,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @item = Item.find(params[:id])
+    render json: @item, status: 200
+  end
+
   def update
     @kit = Kit.find(params[:kit_id])
     @item = Item.find(params[:id])
