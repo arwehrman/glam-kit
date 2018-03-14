@@ -8,7 +8,7 @@ $(function() {
       var items = kit["items"];
       var itemList = "";
       items.forEach(function(item) {
-        itemList += '<li class="js-order" data-id="' + item["id"] + '">' + item["name"] + '</li>';
+        itemList += '<tr><td>' + item["name"] + '</td><td>' + item["brand"] + '</td><td>' + item["color"] +  '</td><td>' + item["comment"] + '</td></tr>';
       });
       $("#kit-" + id + "-items").html(itemList);
     });
@@ -16,6 +16,5 @@ $(function() {
 });
 
 //Things to do
-//determine format for list items
-//list items when button is clicked - working now but may change after format change
-//hide items when button is clicked again
+
+//hide items when button is clicked again?
