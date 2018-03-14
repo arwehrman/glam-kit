@@ -23,6 +23,10 @@ class KitsController < ApplicationController
 
   def show
     @kit = current_user.kits.find(params[:id])
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @kit, status: 200 }
+    end
   end
 
   def details

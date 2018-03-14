@@ -7,29 +7,10 @@
   <p>Please select a kit from below to see more details.</p>
   <% @kits.each do |k| %>
   <%= link_to k.name, kit_path(k) %><br />
+  <div id="kit-<%= k.id %>"><%= k.name %> - <%= k.id %></div>
   <button class="js-more" data-id="<%= k.id %>">See Items</button><br />
   <% end %>
 </div>
-
-<!--produces button but isn't pull data-->
-<script type="text/javascript" charset="utf-8">
-$(function() {
-  $(".js-more").on("click", function() {
-    var id = $(this).data("id");
-    $.get("/kits/" + id + ".json", function(data) {
-      var kit = data;
-      var kitText = "<p>" + kit["name"] + "</p>";
-      $("#kit-" + id).html(kitText);
-      var items = kit["items"];
-      var itemList = "";
-      items.forEach(function(item) {
-        itemList += '<li class="js-item" data-id="' + item["id"] + '">' + item["id"] + ' - ' + item["name"] + '</li>';
-      });
-      $("#kit-" + id + "-items").html(itemList);
-    });
-  });
-});
-</script>
 
 
 <%= link_to 'Add a New Kit', new_kit_path%><br>
