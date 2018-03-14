@@ -7,10 +7,11 @@
   <p>Please select a kit from below to see more details.</p>
   <% @kits.each do |k| %>
   <%= link_to k.name, kit_path(k) %><br />
-  <div id="kit-<%= k.id %>"><%= k.name %> - <%= k.id %></div>
+  <div id="kit-<%= k.id %>"></div>
+  <div id="kit-<%=k.id%>-items"></div>
   <button class="js-more" data-id="<%= k.id %>">See Items</button><br />
   <% end %>
-</div>
+</div><br>
 
 
 <%= link_to 'Add a New Kit', new_kit_path%><br>

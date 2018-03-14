@@ -29,11 +29,6 @@ class KitsController < ApplicationController
     end
   end
 
-  def details
-    @kit = current_user.kits.find(params[:id])
-    render json: @kit
-  end
-
   def edit
     @kit = Kit.find_by(params[:id])
   end
