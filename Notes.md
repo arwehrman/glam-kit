@@ -55,3 +55,13 @@ User's Kit /kits/:kit_id/items
     edit form GET /kits/:kit_id/items/:id/edit
     submission PUT /kits/:kit_id/items/:id
   - link to delete entire kit
+
+
+JS-jQuery additions
+
+- create Serializers
+- index a resource via jQuery
+- show a resource via jQuery
+- form creates and renders a response w/o page refresh
+- must have a method on prototype
+- must translate the JSON response into JS Model Objects

@@ -15,7 +15,7 @@ class KitsController < ApplicationController
     @categories = Category.all
     @kit = current_user.kits.build(kit_params)
     if @kit.save
-      redirect_to kit_path(@kit)
+      render json: @post, status: 201
     else
       render :new
     end

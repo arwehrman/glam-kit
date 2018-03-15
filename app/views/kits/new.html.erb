@@ -43,3 +43,28 @@
 <% end %>
 <br><br>
 <%= link_to "Go Back to Kits", kits_path %><br><br>
+
+<div id="kitResult">
+  <h2 id="kname"></h2>
+  <p id="kid"></p>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    $('form').submit(function(event) {
+
+      event.preventDefault();
+
+      var values = $(this).serialize();
+      debugger
+      var posting = $.post('/kits', values);
+      debugger
+      posting.done(function(data) {
+        var kit = data;
+        debugger
+        $("#kname").text(kit["name"]);
+        $("#kid").text(kit["id"]);
+      });
+    });
+  });
+</script>

@@ -10,7 +10,7 @@ $(function() {
       items.forEach(function(item) {
         itemList += '<tr><td>' + item["name"] + '</td><td>' + item["brand"] + '</td><td>' + item["color"] +  '</td><td>' + item["comment"] + '</td></tr>';
       });
-      $("#kit-" + id + "-items").html(itemList);
+      $("#kit-" + id + "-items").html(itemList).toggle();
     });
   });
 });
