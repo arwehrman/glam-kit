@@ -15,7 +15,6 @@ gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'jquery-rails'
 gem 'active_model_serializers'
-gem 'bootstrap-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

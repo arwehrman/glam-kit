@@ -1,4 +1,4 @@
-//show kits 
+//show user kit details
 $(function() {
   $(".js-more").on("click", function() {
     var id = $(this).data("id");
@@ -15,12 +15,3 @@ $(function() {
     });
   });
 });
-
-//form
-  $(function () {
-    $('form').submit(function(event) {
-
-      event.preventDefault();
-      alert("this works");
-    });
-  });

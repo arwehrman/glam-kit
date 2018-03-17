@@ -30,3 +30,15 @@
 <%= f.submit %>
 <% end %>
 <%= link_to "Go Back to Kits", kits_path %><br><br>
+
+//form
+<script>
+  $(function () {
+    $('form').submit(function(event) {
+
+      event.preventDefault();
+      alert("this works");
+    });
+  });
+
+  </script>

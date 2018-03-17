@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
       @items = Item.by_category(params[:category])
     else
       @items = Item.all
+      render json: @items, status: 200
     end
   end
 
