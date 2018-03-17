@@ -3,6 +3,7 @@ class KitsController < ApplicationController
 
   def index
     @kits = current_user.kits
+    @items = Item.all
   end
 
   def new
@@ -15,7 +16,7 @@ class KitsController < ApplicationController
     @categories = Category.all
     @kit = current_user.kits.build(kit_params)
     if @kit.save
-      render json: @post, status: 201
+      redirect_to @kits #redirects to user kits index page  
     else
       render :new
     end
