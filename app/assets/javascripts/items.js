@@ -1,10 +1,7 @@
-
 //index all users items
-//currently pulls all items data but doesn't show on kits index html
-//probably has to do with the Item & Kit controllers
 $(function(){
   $(".js-allItems").on("click", function(e){
-    e.preventDefault()
+    //e.preventDefault()
     $.get("/items").done(function(data){
       let items = data
       var itemList = "";

@@ -4,7 +4,7 @@ $(function() {
     var id = $(this).data("id");
     $.get("/kits/" + id + ".json", function(data) {
       var kit = data;
-      /*var kitText = "<p>" + kit["name"] + "</p>";
+      /*var kitText = "<p>" + kit["name"] + "</p>"; THIS WILL PROBABLY GET REMOVED
         $("#kit-" + id).html(kitText); */
       var items = kit["items"];
       var itemList = "";
