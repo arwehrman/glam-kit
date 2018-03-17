@@ -6,10 +6,10 @@
 <div>
   <p>Please select a kit from below to see more details.</p>
   <% @kits.each do |k| %>
-  <%= link_to k.name, kit_path(k) %><br><br>
-  <div id="kit-<%= k.id %>"></div>
+  <%= link_to k.name, kit_path(k) %><br />
+
   <div id="kit-<%=k.id%>-items"></div>
-  <button class="js-more" data-id="<%= k.id %>">See Items</button><br><br>
+  <button class="js-more" data-id="<%= k.id %>">See Items</button><br />
   <% end %>
 </div><br>
 
@@ -17,3 +17,13 @@
 <%= link_to 'Add a New Kit', new_kit_path%><br>
 <%= link_to 'Sign Out', signout_path, method: :delete %><br>
 <p>Check out other users items and ratings: <%= link_to 'See all Items', items_path%> </p>
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    $('form').submit(function(event) {
+
+      event.preventDefault();
+      alert("this works");
+    });
+  });
+</script>
