@@ -12,7 +12,7 @@
   </div>
 <% end %>
 
-<%= form_for [@kit, @item] do |f| %>
+<%= form_for [@kit, @item], :html => { :class => "new-item" } do |f| %>
   <%= f.label :name %>:
   <%= f.text_field :name %><br>
   <%= f.label :brand %>:

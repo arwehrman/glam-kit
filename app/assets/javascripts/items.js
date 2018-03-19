@@ -13,3 +13,15 @@ $(function(){
     })
   })
 })
+
+
+//add item to kit  this may be moved to Kit js
+$(function(){
+  $('form#new-item').submit(function(e){
+  e.preventDefault();
+  url = this.action
+  var values = $(this).serialize();
+  var posting = $.post(url)
+  debugger
+  })
+})
