@@ -9,7 +9,10 @@ function Item(name, brand, color, price, rating, comment){
     //this.category_id = pull from JSON data?
     //this.kit_id = pull from JSON data?
   }
-  Item.prototype.newItem = function() { //this will eventually be formatter for new item
+  Item.prototype.listItem = function() { //this will eventually be formatter for new item
+      //format new item
+      //all items or just the new item?
+
   console.log(`Just added ${this.name}`); //
   }
 
