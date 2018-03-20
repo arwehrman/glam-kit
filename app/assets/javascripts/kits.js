@@ -1,20 +1,4 @@
-//Item
-function Item(name, brand, color, price, rating, comment){
-    //this.id = pull from JSON data?
-    this.name = name
-    this.brand = brand
-    this.color = color
-    this.price = rating
-    this.comment = comment
-    //this.category_id = pull from JSON data?
-    //this.kit_id = pull from JSON data?
-  }
-  Item.prototype.listItem = function() { //this will eventually be formatter for new item
-      //format new item
-      //all items or just the new item?
 
-  console.log(`Just added ${this.name}`); //
-  }
 
 //show user kit details
 $(function() {
@@ -32,10 +16,8 @@ $(function() {
   });
 });
 
-
-
-
 //add an item to a kitText
+//this should be connected to add new item form
   $(function () {
     $(".addItem").on("click", function(event) {
       event.preventDefault();
