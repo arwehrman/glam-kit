@@ -45,7 +45,7 @@ $(function(){
     });
   });
 
-//add item to existing kit 
+//add item to existing kit
 /* $(function(){
   $('form#new_item').submit(function(e){
   e.preventDefault();

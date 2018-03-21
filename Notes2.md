@@ -10,6 +10,7 @@ Things to do:
 - Render form and submit form dynamically
   - which forms? Add? Edit? All?
   - which pages?
+  - how to show newly add items in table?
 - add more seed data so can implement pagenation?
 - Update README file
 - why is the Delete action Are You Sure prompt asking twice?

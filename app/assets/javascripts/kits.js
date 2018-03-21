@@ -37,7 +37,11 @@ $(function(){
   var values = $(this).serialize();
   var posting = $.post(url, values)
     posting.done(function(data) {
-      console.log(data);
+      var kit = data;
+      debugger
+        $("#kitName").text("name");
+        $("#kitId").text("id");
+
       });
 
   })

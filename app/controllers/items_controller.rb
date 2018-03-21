@@ -36,8 +36,8 @@ class ItemsController < ApplicationController
     @item = @kit.items.build(item_params)
     if @item.valid?
       @item.save
-      #render json: @item
-      redirect_to kit_path(@kit)
+      render json: @kit
+      #redirect_to kit_path(@kit)
     else
       render :new
     end
