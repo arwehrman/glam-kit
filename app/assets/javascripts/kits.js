@@ -1,4 +1,17 @@
-
+$(function(){
+  function Kit(attributes){  // still need to has this out
+    this.name = attributes.name
+    this.id = attributes.id
+    items_attributes: {
+      this.name = item['name']
+      this.brand = item['brand']
+      this.color = item['color']
+      this.rating = item['rating']
+      this.price = item['price']
+      this.comment = item['comment']
+    }
+  }
+});
 
 //show user kit details
 $(function() {

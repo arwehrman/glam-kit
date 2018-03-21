@@ -16,7 +16,7 @@ class KitsController < ApplicationController
     @categories = Category.all
     @kit = current_user.kits.build(kit_params)
     if @kit.save
-      redirect_to @kits #redirects to user kits index page  
+      redirect_to kits_path
     else
       render :new
     end

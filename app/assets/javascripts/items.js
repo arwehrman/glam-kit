@@ -5,15 +5,19 @@ function Item(attributes){
     this.color = attributes.color;
     this.price = attributes.rating;
     this.comment = attributes.comment;
-    this.id = attributes.id
-    //this.category_id = pull from JSON data?
-    //this.kit_id = pull from JSON data?
+    this.id = attributes.id;
+    this.category_id = attributes.category_id;
+    this.kit_id = attributes.kit_id;
   }
-  Item.prototype.listItem = function() { //this will eventually be formatter for new item
-      //format new item
-      //all items or just the new item?
+  Item.prototype.listItem = function() {
+    //this will eventually be formatter for newly added item
+    console.log(`Just added ${this.name}`); //test will remove eventually
+    }
 
-  console.log(`Just added ${this.name}`); //
+  Item.prototype.listItems = function() {
+    //this will eventually be formatter for list of items
+
+    console.log(`Just added ${this.name}`); //tester will remove eventually
   }
 
 //index all users items
@@ -34,7 +38,7 @@ $(function(){
 
 
 //add item to kit  this may be moved to Kit js
-$(function(){
+/* $(function(){
   $('form#new_item').submit(function(e){
   e.preventDefault();
   url = this.action
@@ -43,3 +47,4 @@ $(function(){
   debugger
   })
 })
+*/
