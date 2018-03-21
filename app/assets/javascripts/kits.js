@@ -1,5 +1,5 @@
 $(function(){
-  function Kit(attributes){  // still need to has this out
+  function Kit(attributes){  // not sure if this actually how it should works
     this.name = attributes.name
     this.id = attributes.id
     items_attributes: {
@@ -29,11 +29,16 @@ $(function() {
   });
 });
 
-//add an item to a kitText
-//this should be connected to add new item form
-  $(function () {
-    $(".addItem").on("click", function(event) {
-      event.preventDefault();
-      alert("this works");
-    });
-  });
+//add new kit
+$(function(){
+  $('form.new_kit').submit(function(e){
+  e.preventDefault();
+  url = this.action
+  var values = $(this).serialize();
+  var posting = $.post(url, values)
+    posting.done(function(data) {
+      console.log(data);
+      });
+
+  })
+})
