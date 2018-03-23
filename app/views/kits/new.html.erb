@@ -21,7 +21,7 @@
   <%= f.label :name %> * :
   <%= f.text_field :name %><br>
   <%= f.label :description %> * :
-  <%= f.text_field :description %><br>  
+  <%= f.text_field :description %><br>
 
   <p>Please add your first item to the GlamKit. You can add more
      items after the kit has been created with the initial item.</p>
@@ -45,3 +45,12 @@
 <% end %>
 <br><br>
 <%= link_to "Go Back to Kits", kits_path %><br><br>
+
+<div id="kitResult">
+  <h2 id="kitName"></h2>
+  <h3 id="kitId"></h3>
+  <p id="kitDescription"></p>
+  <p id="itemName"></p>
+  <p id="itemBrand"></p>
+  <p id="itemColor"></p>
+</div>
