@@ -31,7 +31,7 @@
   <% end %>
 </table>
 <br>
-<button class="js-next" data-id="<%= @kit.id %>">Next Kit</button>
+
 <%= link_to "Add Item", new_kit_item_path(@kit) %>
 <%= link_to "Delete Kit", kit_path(@kit), method: :delete, data: { confirm: "Are you sure?" } %>
 <%= link_to "Go Back to Kits", kits_path %><br><br>

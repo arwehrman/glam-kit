@@ -1,19 +1,15 @@
-$(function(){
-  function Kit(attributes){
-    this.name = attributes.name
-    this.id = attributes.id
-    items_attributes: {
-      this.name = item['name']
-      this.brand = item['brand']
-      this.color = item['color']
-      this.rating = item['rating']
-      this.price = item['price']
-      this.comment = item['comment']
-    }
-  }
-});
 
-//show user kit details
+  function Kit(name, description, id){
+    this.name = name;
+    this.description = description;
+    this.id = id
+    }
+
+    Kit.prototype.sayHello = function(){
+      console.log(`This kit's name is: ${this.name}`);
+    }
+
+//show user kit details on Kits index page
 $(function() {
   $(".js-more").on("click", function() {
     var id = $(this).data("id");
@@ -28,23 +24,6 @@ $(function() {
     });
   });
 });
-
-$(function () {
-  $(".js-next").on("click", function() {
-    var nextId = parseInt($(".js-next").attr("data-id")) + 1; // +1 won't always work
-    $.get("/kits/" + nextId + ".json", function(data) {
-      var kit = data;
-      var items = kit["items"];
-      var itemList = "";
-      debugger
-      items.forEach(function(item) {
-        itemList += '<tr><td>' + item["name"] + '</td><td>' + item["brand"] + '</td><td>' + item["color"] +  '</td><td>' + item["comment"] + '</td></tr>';
-      });
-      $(".js-next").attr("data-id", kit["id"]);
-    });
-  });
-});
-
 
 //add new kit with item
 $(function(){
@@ -63,7 +42,8 @@ $(function(){
         $("#itemName").text(item.name)
         $("#itemBrand").text(item.brand)
         $("#itemColor").text(item.color)
-        $("#itemPrice").text(item.rating)
+        $("#itemPrice").text(item.price)
+        $("#itemRating").text(item.rating)
         $("#itemComment").text(item.comment)
         $("#itemCategory").text(item.category)
 

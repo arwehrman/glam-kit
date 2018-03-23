@@ -21,7 +21,6 @@ function Item(attributes){
   }
 
 //index all users items
-
 $(function(){
   $(".js-allItems").on("click", function(e){
     //e.preventDefault()
