@@ -16,14 +16,15 @@ class KitsController < ApplicationController
     @categories = Category.all
     @kit = current_user.kits.build(kit_params)
     if @kit.save
-      #redirect_to kits_path
       render json: @kit, status: 201
+
     else
       render :new
     end
   end
 
   def show
+    @kits = current_user.kits
     @kit = current_user.kits.find(params[:id])
     respond_to do |format|
       format.html { render :show }

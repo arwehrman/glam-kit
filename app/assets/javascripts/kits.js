@@ -29,6 +29,23 @@ $(function() {
   });
 });
 
+$(function () {
+  $(".js-next").on("click", function() {
+    var nextId = parseInt($(".js-next").attr("data-id")) + 1; // +1 won't always work
+    $.get("/kits/" + nextId + ".json", function(data) {
+      var kit = data;
+      var items = kit["items"];
+      var itemList = "";
+      debugger
+      items.forEach(function(item) {
+        itemList += '<tr><td>' + item["name"] + '</td><td>' + item["brand"] + '</td><td>' + item["color"] +  '</td><td>' + item["comment"] + '</td></tr>';
+      });
+      $(".js-next").attr("data-id", kit["id"]);
+    });
+  });
+});
+
+
 //add new kit with item
 $(function(){
   $('form.new_kit').submit(function(e){
@@ -40,7 +57,7 @@ $(function(){
 
       var kit = data;
       var item = kit.items[0]
-      debugger
+
         $("#kitName").text(kit.name);
         $("#kitId").text(kit.id);
         $("#itemName").text(item.name)
