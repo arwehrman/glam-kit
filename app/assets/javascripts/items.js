@@ -42,9 +42,10 @@ $(function(){
   $(function () {
     $(".addItem").on("click", function(event) {
       event.preventDefault();
-      alert("this works");
+      alert("When clicked, Add Item form should display");
     });
   });
+
 
 //add item to existing kit
  $(function(){
