@@ -1,5 +1,5 @@
 $(function(){
-  function Kit(attributes){  // not sure if this actually how it should works
+  function Kit(attributes){
     this.name = attributes.name
     this.id = attributes.id
     items_attributes: {
@@ -29,7 +29,7 @@ $(function() {
   });
 });
 
-//add new kit
+//add new kit with item
 $(function(){
   $('form.new_kit').submit(function(e){
   e.preventDefault();
@@ -38,11 +38,9 @@ $(function(){
   var posting = $.post(url, values)
     posting.done(function(data) {
       var kit = data;
-      debugger
         $("#kitName").text("name");
         $("#kitId").text("id");
 
       });
-
   })
 })

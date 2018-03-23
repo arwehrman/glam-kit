@@ -21,7 +21,7 @@ function Item(attributes){
   }
 
 //index all users items
-//currently this lives on the User kits_path
+
 $(function(){
   $(".js-allItems").on("click", function(e){
     //e.preventDefault()
@@ -36,6 +36,7 @@ $(function(){
     })
   })
 })
+
 //when clicked should show add new item form
 //currently button is on kit_path
   $(function () {
@@ -46,13 +47,11 @@ $(function(){
   });
 
 //add item to existing kit
-/* $(function(){
+ $(function(){
   $('form#new_item').submit(function(e){
-  e.preventDefault();
-  url = this.action
-  var values = $(this).serialize();
-  var posting = $.post(url)
-  debugger
+    e.preventDefault();
+      url = this.action
+      var values = $(this).serialize();
+      var posting = $.post(url, values)
   })
 })
-*/
