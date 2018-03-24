@@ -23,8 +23,6 @@ function Item(attributes){
 //index all users items
 $(function(){
   $(".js-allItems").on("click", function(e){
-    //e.preventDefault()
-
     $.get("/items").done(function(data){
       let items = data
       var itemList = ""
@@ -44,7 +42,6 @@ $(function(){
       alert("When clicked, Add Item form should display");
     });
   });
-
 
 //add item to existing kit
  $(function(){
