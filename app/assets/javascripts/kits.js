@@ -4,8 +4,8 @@
     this.description = description;
     this.id = id
     }
-
-    Kit.prototype.sayHello = function(){
+    //this should list all items in Kit in a table format
+    Kit.prototype.listItems = function(){
       console.log(`This kit's name is: ${this.name}`);
     }
 
