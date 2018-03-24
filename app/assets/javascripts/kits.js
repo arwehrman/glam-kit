@@ -1,14 +1,3 @@
-
-  function Kit(name, description, id){
-    this.name = name;
-    this.description = description;
-    this.id = id
-    }
-    //this should list all items in Kit in a table format
-    Kit.prototype.listItems = function(){
-      console.log(`This kit's name is: ${this.name}`);
-    }
-
 //show user kit details on Kits index page
 $(function() {
   $(".js-more").on("click", function() {
