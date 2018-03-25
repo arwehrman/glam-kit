@@ -12,15 +12,6 @@ $(function(){
   })
 })
 
-//when clicked should show add new item form
-//currently button is on kit_path
-  $(function () {
-    $(".addItem").on("click", function(event) {
-      event.preventDefault();
-      alert("When clicked, Add Item form should display");
-    });
-  });
-
 //add item to existing kit
  $(function(){
   $('form#new_item').submit(function(e){
@@ -28,5 +19,13 @@ $(function(){
       url = this.action
       var values = $(this).serialize();
       var posting = $.post(url, values)
+        posting.done(function(data) {
+          let items = data
+          var trHTML = ""
+        items.forEach(function(item) {
+          trHTML += '<tr><td>' + item["name"] + '</td><td>' + item["brand"] + '</td><td>' + item["color"] +  '</td><td>' + item["comment"] + '</td></tr>';
+          $("table#kitItems").append(trHTML)
+        })
+      })
   })
 })

@@ -1,7 +1,7 @@
 <h1><%= @kit.name %></h1>
 <h2><%= @kit.description %></h2>
 <p><%= pluralize(@kit.items.count, "item")%> in this kit</p>
-<table>
+<table id="kitItems">
   <tr>
     <th>Name</th>
     <th>Brand</th>
@@ -30,10 +30,9 @@
 </table>
 <br>
 
-<%= link_to "Add Item", new_kit_item_path(@kit) %>
+<!--%= link_to "Add Item", new_kit_item_path(@kit) %-->
+<h3>Add Another Item</h3>
+<%= render partial: "/items/form" %>
+
 <%= link_to "Delete Kit", kit_path(@kit), method: :delete, data: { confirm: "Are you sure?" } %>
 <%= link_to "Go Back to Kits", kits_path %><br><br>
-
-
-<button class="addItem" data-id="">Add Item</button>
-<h3>DISPLAY ADD NEW ITEM FORM HERE</h3>
