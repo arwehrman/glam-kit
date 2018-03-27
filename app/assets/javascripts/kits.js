@@ -1,19 +1,3 @@
-class Kit{
-  constructor(attributes){
-    this.name = attributes.name;
-    this.description = attributes.description;
-    this.id = atttributes.id
-    }
-    //this should list all items in Kit in a table format
-    listItems(){
-      console.log(`This kit's name is: ${this.name}`);
-    }
-    listItem() {
-      //this will eventually be formatter for newly added item
-      console.log(`Just added ${this.name}`); //test will remove eventually
-      }
-}
-
 //show user kit details on Kits index page
 $(function() {
   $(".js-more").on("click", function() {

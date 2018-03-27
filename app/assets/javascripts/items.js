@@ -6,8 +6,9 @@ class Item{
     this.category = attributes.category['name']
     this.price = attributes['price'];
     this.rating = attributes['rating'];
-    this.comment = attributes['comment']
-
+    this.comment = attributes['comment'];
+    this.id = attributes['id']; //need to figure out how to not include in for loop
+    this.kitId = attributes.kit['id']//need to figure out how to not include in for loop
     }
     //this should list all items in Kit in a table format
     listItems(){
@@ -32,6 +33,7 @@ class Item{
 Item.success = function(json){
   var item = new Item(json);
   var itemLi = item.listItem()
+
 }
 
 Item.error = function(response){
@@ -57,12 +59,14 @@ $(function(){
 
 //add item to existing kit
  $(function(){
-  $('form.new-item').submit(function(e){
+  $('form.new_item').submit(function(e){
     e.preventDefault();
     url = this.action
     var values = $(this).serialize();
     var posting = $.post(url, values)
     .success(Item.success)
     .error(Item.error)
+
     })
+
 })

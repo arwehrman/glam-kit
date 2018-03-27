@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
 
   def index
     @categories = Category.all
-
     if !params[:rating].blank?
       @items = Item.by_rating(params[:rating])
     elsif !params[:category].blank?
@@ -39,10 +38,7 @@ class ItemsController < ApplicationController
       respond_to do |format|
         format.json { render json: @item}
          format.html { redirect_to kit_path(@kit) }
-
         end
-     #render json: @item
-      #redirect_to kit_path(@kit)
     else
       render :new
     end

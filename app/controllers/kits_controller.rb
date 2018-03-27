@@ -17,7 +17,6 @@ class KitsController < ApplicationController
     @kit = current_user.kits.build(kit_params)
     if @kit.save
       render json: @kit, status: 201
-
     else
       render :new
     end
