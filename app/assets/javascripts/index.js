@@ -20,10 +20,31 @@ var values = new Array(3);
        tr.appendChild(td);
      }
 
+
+     posting.done(function(data) {
+
+       var kit = data;
+       debugger
+       var mixed = document.getElementById("kitItems");
+       var tbody = document.createElement("tbody");
+       var tr = document.createElement("tr");
+       var td = document.createElement("td");
+       var txt = document.createTextNode(`${kit['name']}`);
+       td.appendChild(txt);
+       tr.appendChild(td);
+       tbody.appendChild(tr);
+       mixed.appendChild(tbody);
+     })
+
+
+
+
+
+
+
      // append row to table
      // IE7 requires append row to tbody, append tbody to table
      tbody.appendChild(tr);
      mixed.appendChild(tbody);
    }
 */
-  

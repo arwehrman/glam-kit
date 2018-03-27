@@ -2,7 +2,12 @@ class Item{
   constructor(attributes){
     this.name = attributes['name'];
     this.brand = attributes['brand'];
-    this.rating = attributes['rating']
+    this.color = attributes['color'];
+    this.category = attributes.category['name']
+    this.price = attributes['price'];
+    this.rating = attributes['rating'];
+    this.comment = attributes['comment'];
+
     }
     //this should list all items in Kit in a table format
     listItems(){
@@ -11,15 +16,20 @@ class Item{
     listItem() {
       //this will eventually be formatter for newly added item
       console.log(`Just added ${this.name}`); //test will remove eventually
+      var itemsTable = document.getElementById("kitItems");
+      let row = ""
+      row += '<tr><td>' + `${this.name}` + '</td><td>' + `${this.brand}` + '</td><td>' + `${this.color}` +  '</td><td>' + `${this.category}` +  '</td><td>' + `${this.price}` +  '</td><td>' + `${this.rating}` + '<tr><td>'
+      + `${this.comment}` + '</td></tr>';
+      itemsTable.append(row)
+      debugger
       }
 }
 
 Item.success = function(json){
-  debugger
   var item = new Item(json);
-  var itemLi = item.renderLI()
+  var itemLi = item.listItem()
 
-  $("ul.todo-list").append(itemLi)
+  //$("ul.todo-list").append(itemLi)
 }
 
 Item.error = function(response){
