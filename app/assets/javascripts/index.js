@@ -42,6 +42,7 @@ var values = new Array(3);
 
 
 
+
      // append row to table
      // IE7 requires append row to tbody, append tbody to table
      tbody.appendChild(tr);

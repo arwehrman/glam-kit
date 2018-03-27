@@ -6,7 +6,7 @@ class Item{
     this.category = attributes.category['name']
     this.price = attributes['price'];
     this.rating = attributes['rating'];
-    this.comment = attributes['comment'];
+    this.comment = attributes['comment']
 
     }
     //this should list all items in Kit in a table format
@@ -14,22 +14,24 @@ class Item{
       console.log(`This kit's name is: ${this.name}`);
     }
     listItem() {
-      //this will eventually be formatter for newly added item
-      console.log(`Just added ${this.name}`); //test will remove eventually
-      var itemsTable = document.getElementById("kitItems");
-      let row = ""
-      row += '<tr><td>' + `${this.name}` + '</td><td>' + `${this.brand}` + '</td><td>' + `${this.color}` +  '</td><td>' + `${this.category}` +  '</td><td>' + `${this.price}` +  '</td><td>' + `${this.rating}` + '<tr><td>'
-      + `${this.comment}` + '</td></tr>';
-      itemsTable.append(row)
-      debugger
-      }
+      var mixed = document.getElementById("kitItems");
+      var tbody = document.createElement("tbody");
+      var tr = document.createElement("tr");
+
+      for (var prop in this) {
+        var td = document.createElement("td");
+        var txt = document.createTextNode(this[prop]);
+        td.appendChild(txt);
+        tr.appendChild(td);
+          }
+          tbody.appendChild(tr);
+          mixed.appendChild(tbody);
+        }
 }
 
 Item.success = function(json){
   var item = new Item(json);
   var itemLi = item.listItem()
-
-  //$("ul.todo-list").append(itemLi)
 }
 
 Item.error = function(response){
