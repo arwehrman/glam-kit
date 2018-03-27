@@ -1,24 +1,29 @@
-class Item {
-  constructor(attributes){
-      this.name = attributes.name;
-      this.brand = attributes.brand;
-      this.color = attributes.color;
-      this.price = attributes.rating;
-      this.comment = attributes.comment;
-      this.id = attributes.id;
-      this.category_id = attributes.category_id;
-      if(kit){
-        this.kitId = attributes.user.id
-      }
-    }
+//javascript cookbook code for adding tr via JS
+/*
+var values = new Array(3);
+  values[0] = [123.45, "apple", true];
+  values[1] = [65, "banana", false];
+  values[2] = [1034.99, "cherry", false];
 
-    allItemsTable() {
-      //this will eventually be formatter for list of items
-      console.log(`Just added ${this.name}`); //just testing data
-    }
+  var mixed = document.getElementById("kitItems");
+  var tbody = document.createElement("tbody");
 
-    kitItemsTable(){
+  for (var i = 0 ; i < values.length; i++) {
+     var tr = document.createElement("tr");
 
-    }
+     // for each inner array cell
+     // create td then text, append
+     for (var j = 0; j < values[i].length; j++) {
+       var td = document.createElement("td");
+       var txt = document.createTextNode(values[i][j]);
+       td.appendChild(txt);
+       tr.appendChild(td);
+     }
 
-}
+     // append row to table
+     // IE7 requires append row to tbody, append tbody to table
+     tbody.appendChild(tr);
+     mixed.appendChild(tbody);
+   }
+*/
+  

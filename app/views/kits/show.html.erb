@@ -33,6 +33,14 @@
 <!--%= link_to "Add Item", new_kit_item_path(@kit) %-->
 <h3>Add Another Item</h3>
 <%= render partial: "/items/form" %>
-
 <%= link_to "Delete Kit", kit_path(@kit), method: :delete, data: { confirm: "Are you sure?" } %>
 <%= link_to "Go Back to Kits", kits_path %><br><br>
+
+<div id="kitResult">
+  <h2 id="kitName"></h2>
+  <h3 id="kitId"></h3>
+  <p id="kitDescription"></p>
+  <p id="itemName"></p>
+  <p id="itemBrand"></p>
+  <p id="itemColor"></p>
+</div>

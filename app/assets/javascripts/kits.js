@@ -35,7 +35,7 @@ $(function(){
   $('form.new_kit').submit(function(e){
   e.preventDefault();
   url = this.action
-  var values = $(this).serialize();
+  var values = $(this).serialize
   var posting = $.post(url, values)
     posting.done(function(data) {
 
@@ -51,8 +51,6 @@ $(function(){
         $("#itemRating").text(item.rating)
         $("#itemComment").text(item.comment)
         $("#itemCategory").text(item.category)
-
-
       });
   })
 })

@@ -37,10 +37,11 @@ class ItemsController < ApplicationController
     if @item.valid?
       @item.save
       respond_to do |format|
-            format.html { render :show }
-            format.json { render json: @kit}
-          end
-      #render json: @kit
+        format.json { render json: @item}
+         format.html { redirect_to kit_path(@kit) }
+
+        end
+     #render json: @item
       #redirect_to kit_path(@kit)
     else
       render :new
