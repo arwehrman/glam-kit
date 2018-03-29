@@ -7,38 +7,30 @@ class Item{
     this.price = attributes['price'];
     this.rating = attributes['rating'];
     this.comment = attributes['comment'];
-    this.id = attributes['id']; //need to figure out how to not include in for loop
-    this.kitId = attributes.kit['id']//need to figure out how to not include in for loop
+    this.id = attributes['id'];
+    this.kitId = attributes.kit['id']
     }
     //this should list all items in Kit in a table format
     listItems(){
       console.log(`This kit's name is: ${this.name}`);
     }
-    listItem() {
-      var mixed = document.getElementById("kitItems");
-      var tbody = document.createElement("tbody");
-      var tr = document.createElement("tr");
 
-      for (var prop in this) {
-        var td = document.createElement("td");
-        var txt = document.createTextNode(this[prop]);
-        td.appendChild(txt);
-        tr.appendChild(td);
-          }
-          tbody.appendChild(tr);
-          mixed.appendChild(tbody);
+      renderLI() {
+          return Item.template(this)
         }
 }
 
 Item.success = function(json){
   var item = new Item(json);
-  var itemLi = item.listItem()
-
+  //var itemLi = item.listItem()
+  var itemLi = item.renderLI()
+  $("table#kitItems").append(itemLi)
 }
 
 Item.error = function(response){
-  console.log("Yu broke it?", response)
+  console.log("We have a problem", response)
 }
+
 
 
 //index all users items
@@ -55,8 +47,6 @@ $(function(){
   })
 })
 
-
-
 //add item to existing kit
  $(function(){
   $('form.new_item').submit(function(e){
@@ -66,7 +56,19 @@ $(function(){
     var posting = $.post(url, values)
     .success(Item.success)
     .error(Item.error)
+  })
+})
 
-    })
+Item.ready = function(){
+  Item.templateSource = $("#item-template").html()
+  Item.template = Handlebars.compile(Item.templateSource);
+  //Item.formSubmitListener()
 
+  }
+
+Item.prototype.renderLI = function(){
+  return Item.template(this)
+}
+$(function(){
+  Item.ready()
 })

@@ -36,8 +36,8 @@ class ItemsController < ApplicationController
     if @item.valid?
       @item.save
       respond_to do |format|
-        format.json { render json: @item}
-         format.html { redirect_to kit_path(@kit) }
+        format.json { render json => @item}
+        format.html { redirect_to kit_path(@kit) }
         end
     else
       render :new
@@ -46,7 +46,11 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    render json: @item, status: 200
+    respond_to do |format|
+      format.html { redirect_to kit_path(@kit) }
+      format.json { render json: @item}
+    end
+    #render json: @item, status: 200
   end
 
   def update

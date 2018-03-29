@@ -30,6 +30,22 @@
 </table>
 <br>
 
+<script id="item-template" type= "text/x-handlebars-template">
+<tr>
+    <td>{{name}}</td>
+    <td>{{brand}}</td>
+    <td>{{color}}</td>
+    <td>{{category}}</td>
+    <td>{{price}}</td>
+    <td>{{rating}}</td>
+    <td>{{comment}}</td>
+    <td><a href="/kits/<%= @kit.id %>/items/{{id}}/edit">Edit</a></td>
+    <td><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/kits/<%= @kit.id %>/items/{{id}}">Delete</a>
+  </tr>
+</script>
+
+
+
 <h3>Add Another Item</h3>
 <%= render partial: "/items/form" %>
 
