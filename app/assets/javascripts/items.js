@@ -69,8 +69,8 @@ $(function(){
     var posting = $.post(url, values)
     .success(Item.success)
     .error(Item.error)
-    this.reset() //resets form but sumbit button is still pressed
-
+    //this.reset() //resets form but doesn't release form
+  //$('form.new_item').trigger("reset"); clears form too but doesn't release submit
   })
 })
 

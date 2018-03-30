@@ -12,7 +12,8 @@
   </div>
 <% end %>
 
-<%= form_for [@kit, @item], :html => { :class => "new_item" } do |f| %>
+<div>
+  <%= form_for [@kit, @item], :html => { :class => "new_item" } do |f| %>
   <%= f.label :name %>:
   <%= f.text_field :name %><br>
   <%= f.label :brand %>:
@@ -29,4 +30,5 @@
   <%= f.collection_select(:category_id, @categories, :id, :name, :prompt => true) %><br>
 <%= f.submit %>
 <% end %>
+</div>
 <%= link_to "Go Back to Kits", kits_path %><br><br>
