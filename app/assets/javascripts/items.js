@@ -15,23 +15,36 @@ class Item{
       console.log(`This kit's name is: ${this.name}`);
     }
 
-      renderLI() {
-          return Item.template(this)
-        }
+    renderItem() {
+      return Item.template(this)
+      }
 }
 
 Item.success = function(json){
   var item = new Item(json);
-  //var itemLi = item.listItem()
-  var itemLi = item.renderLI()
-  $("table#kitItems").append(itemLi)
+  var itemRow = item.renderItem()
+  $("table#kitItems").append(itemRow);
 }
 
 Item.error = function(response){
   console.log("We have a problem", response)
 }
 
-
+//show user kit details on Kits index page
+$(function() {
+  $(".js-more").on("click", function() {
+    var id = $(this).data("id");
+    $.get("/kits/" + id + ".json", function(data) {
+      var kit = data;
+      var items = kit["items"];
+      var itemList = "";
+      items.forEach(function(item) {
+        itemList += '<tr><td>' + item["name"] + '</td><td>' + item["brand"] + '</td><td>' + item["color"] +  '</td><td>' + item["comment"] + '</td></tr>'; //maybe make this into a handlebar template
+      });
+      $("#kit-" + id + "-items").html(itemList).toggle();
+    });
+  });
+});
 
 //index all users items
 $(function(){
@@ -56,19 +69,12 @@ $(function(){
     var posting = $.post(url, values)
     .success(Item.success)
     .error(Item.error)
+    this.reset() //resets form but sumbit button is still pressed
+
   })
 })
 
-Item.ready = function(){
-  Item.templateSource = $("#item-template").html()
-  Item.template = Handlebars.compile(Item.templateSource);
-  //Item.formSubmitListener()
-
-  }
-
-Item.prototype.renderLI = function(){
-  return Item.template(this)
-}
 $(function(){
-  Item.ready()
+  Item.templateSource = $("#itemTemplate").html()
+  Item.template = Handlebars.compile(Item.templateSource);
 })

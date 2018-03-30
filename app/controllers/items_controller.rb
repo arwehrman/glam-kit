@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
     if @item.valid?
       @item.save
       respond_to do |format|
-        format.json { render json => @item}
+        format.json { render json: @item}
         format.html { redirect_to kit_path(@kit) }
         end
     else
@@ -50,7 +50,6 @@ class ItemsController < ApplicationController
       format.html { redirect_to kit_path(@kit) }
       format.json { render json: @item}
     end
-    #render json: @item, status: 200
   end
 
   def update

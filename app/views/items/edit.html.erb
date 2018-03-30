@@ -1,2 +1,33 @@
 <h3>Edit Item</h3>
-<%= render "form" %>
+<% if @item.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@item.errors.count, "error") %>.
+      Please fix and submit again.
+    </div>
+    <ul>
+    <% @item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for [@kit, @item] do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br>
+  <%= f.label :brand %>:
+  <%= f.text_field :brand %><br>
+  <%= f.label :color %>:
+  <%= f.text_field :color %><br>
+  <%= f.label :price %>:
+  <%= f.text_field :price %><br>
+  <%= f.label :rating %>:
+  <%= f.select :rating, (1..5) %><br>
+  <%= f.label :comment %><br>
+  <%= f.text_area :comment %><br>
+  <%= f.label "Category" %>:
+  <%= f.collection_select(:category_id, @categories, :id, :name, :prompt => true) %><br>
+<%= f.submit %>
+<% end %>
+<%= link_to "Go Back to Kits", kits_path %><br><br>
