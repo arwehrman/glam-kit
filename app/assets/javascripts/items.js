@@ -60,7 +60,7 @@ function getAllItems(){
 //index all users items
 $(function(){
   $(".js-allItems").on("click", function(){
-    $('#allitemsTable').toggle()
+    $('#allitemstable').toggle()
       getAllItems()
     })
   })
