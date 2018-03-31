@@ -51,7 +51,6 @@ function getKitItems(id){
 //show user kit details on Kits index page
 $(function() {
   $(".js-more").on("click", function() {
-    debugger
     $("#kitItemsTable").toggle()
     var id = $(this).data("id");
     getKitItems(id)
