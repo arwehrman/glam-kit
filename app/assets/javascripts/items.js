@@ -34,7 +34,6 @@ function getKitItems(id){
     var items = kit["items"]
     var result = template(items);
     document.getElementById("kitItemsTable").innerHTML += result
-
   })
 }
 
@@ -47,19 +46,24 @@ $(function() {
     });
 });
 
+//handlebars index all user items
+function getAllItems(){
+  $.get("/items", function(data) {
+    var templateSource = $("#allitemsTemplate").html()
+    var template = Handlebars.compile(templateSource)
+    var items = data;
+    var result = template(items);
+    document.getElementById("allitemstable").innerHTML += result
+  })
+}
+
 //index all users items
 $(function(){
   $(".js-allItems").on("click", function(){
-    $.get("/items").done(function(data){
-      let items = data
-      var itemList = ""
-      items.forEach(function(item) {
-        itemList += '<tr><td>' + item["name"] + '</td><td>' + item["brand"] + '</td><td>' + item["color"] +  '</td><td>' + item["comment"] + '</td></tr>';
-      });
-      $("#itemstable").html(itemList).toggle();
+    $('#allitemsTable').toggle()
+      getAllItems()
     })
   })
-})
 
 //add item to existing kit
  $(function(){
