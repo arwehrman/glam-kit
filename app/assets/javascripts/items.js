@@ -55,7 +55,7 @@ $(function() {
 
 //index all users items
 $(function(){
-  $(".js-allItems").on("click", function(e){
+  $(".js-allItems").on("click", function(){
     $.get("/items").done(function(data){
       let items = data
       var itemList = ""
