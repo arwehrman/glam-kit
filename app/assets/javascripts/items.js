@@ -10,16 +10,9 @@ class Item{
     this.id = attributes['id'];
     this.kitId = attributes.kit['id']
     }
-    //this should list all items in Kit in a table format
-    listItems(){
-      console.log(`This kit's name is: ${this.name}`);
-    }
-
     renderItem() {
       return Item.template(this)
       }
-
-
 }
 
 Item.success = function(json){
@@ -32,6 +25,7 @@ Item.error = function(response){
   console.log("We have a problem", response)
 }
 
+//handlebars template preview kit items
 function getKitItems(id){
   $.get("/kits/" + id + ".json", function(data) {
     var templateSource = $("#kititemsTemplate").html()
@@ -40,12 +34,14 @@ function getKitItems(id){
     var items = kit["items"]
     var result = template(items);
     document.getElementById("kitItemsTable").innerHTML += result
+
   })
 }
 
 //show user kit details on Kits index page
 $(function() {
   $(".js-more").on("click", function() {
+    $("#kitItemsTable").toggle()
     var id = $(this).data("id");
     getKitItems(id)
     });
