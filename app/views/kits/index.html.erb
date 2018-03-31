@@ -9,7 +9,7 @@
   <%= link_to k.name, kit_path(k) %><br><br>
   <button class="js-more" data-id="<%= k.id %>">Preview Items</button><br><br>
   <% end %>
-  <div id=kitItemsTable></div>
+  <table id=kitItemsTable></table>
     <script id="kititemsTemplate" type= "text/x-handlebars-template">
       {{#each this}}
       <tr>

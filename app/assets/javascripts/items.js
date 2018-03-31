@@ -39,11 +39,10 @@ function getKitItems(id){
     var kit = data;
     var items = kit["items"]
     var result = template(items);
-    debugger
-    document.getElementById("kitItemsTable").append(result)
-    //$("kitItemsTable").append(result);
+    document.getElementById("kitItemsTable").innerHTML += result
   })
 }
+
 //show user kit details on Kits index page
 $(function() {
   $(".js-more").on("click", function() {
@@ -75,12 +74,9 @@ $(function(){
     var posting = $.post(url, values)
     .success(Item.success)
     .error(Item.error)
-    this.reset() //resets form but doesn't release form
-  //$('form.new_item').trigger("reset"); clears form too but doesn't release submit
+    this.reset()
   })
 })
-
-
 
 $(function(){
   Item.templateSource = $("#itemTemplate").html()
