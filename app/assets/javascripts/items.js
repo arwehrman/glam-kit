@@ -13,7 +13,6 @@ class Item{
     renderItem() {
       return Item.template(this)
       }
-
 }
 
 Item.success = function(json){
@@ -37,16 +36,6 @@ function getKitItems(id){
     document.getElementById("kitItemsTable").innerHTML += result
   })
 }
-
-//show user kit details on Kits index page
-$(function() {
-  $(".js-more").on("click", function() {
-    $("#kitItemsTable").toggle()
-    var id = $(this).data("id");
-    getKitItems(id)
-    });
-});
-
 //handlebars index all user items
  function getAllItems(){
   $.get("/items", function(data) {
@@ -58,6 +47,16 @@ $(function() {
     document.getElementById("allitemstable").innerHTML += result
   })
   }
+
+//show user kit details on Kits index page
+$(function() {
+  $(".js-more").on("click", function() {
+    debugger
+    $("#kitItemsTable").toggle()
+    var id = $(this).data("id");
+    getKitItems(id)
+    });
+});
 
 //index all users items
 $(function(){
