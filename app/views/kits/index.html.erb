@@ -8,7 +8,8 @@
   <% @kits.each do |k| %>
   <%= link_to k.name, kit_path(k) %><br><br>
   <button class="js-more" data-id="<%= k.id %>">Preview Items</button><br><br>
-  <div id=kitItems>
+  <% end %>
+  <div id=kitItemsTable></div>
     <script id="kititemsTemplate" type= "text/x-handlebars-template">
       {{#each this}}
       <tr>
@@ -18,9 +19,7 @@
       </tr>
       {{/each}}
     </script>
-  </div>
-  <% end %>
-</div><br>
+</div>
 
 <%= link_to 'Add a New Kit', new_kit_path%><br>
 <%= link_to 'Sign Out', signout_path, method: :delete %><br>

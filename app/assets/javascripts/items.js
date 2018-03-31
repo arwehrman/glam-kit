@@ -40,7 +40,8 @@ function getKitItems(id){
     var items = kit["items"]
     var result = template(items);
     debugger
-    $("kitItemsTable").append(result);
+    document.getElementById("kitItemsTable").append(result)
+    //$("kitItemsTable").append(result);
   })
 }
 //show user kit details on Kits index page
