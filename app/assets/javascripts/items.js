@@ -13,6 +13,7 @@ class Item{
     renderItem() {
       return Item.template(this)
       }
+
 }
 
 Item.success = function(json){
@@ -47,15 +48,16 @@ $(function() {
 });
 
 //handlebars index all user items
-function getAllItems(){
+ function getAllItems(){
   $.get("/items", function(data) {
+    document.getElementById("allitemstable").innerHTML = "" //clear out
     var templateSource = $("#allitemsTemplate").html()
     var template = Handlebars.compile(templateSource)
     var items = data;
     var result = template(items);
     document.getElementById("allitemstable").innerHTML += result
   })
-}
+  }
 
 //index all users items
 $(function(){
