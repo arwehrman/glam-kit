@@ -2,20 +2,27 @@
 
 GlamKit is a makeup tracker Rails application. Users can create, edit, and update makeup kits with items that can be ranked. All items are shared with other users.
 
-* Ruby version
-This app was created using Ruby version 2.3.3p222
+
 
 ## Installation
+* Ruby version 2.3.3p222
 * Fork and clone Glam-Kit Repo
 * Bundle install
+  ```
   bundle install
+  ```
 * migrate the database
+  ```
    rake db:migrate
+   ```
 * seed categories
+  ```
   rake db:seed
+  ```
 * run Rails server
+  ```
     rails s
-
+    ```
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
