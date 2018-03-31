@@ -30,6 +30,13 @@ Item.error = function(response){
   console.log("We have a problem", response)
 }
 
+function resetForm() {
+ $('form.new_item').each(function(){
+   $(this).val('').attr('checked',false).attr('selected',false);
+ });
+}
+
+
 //show user kit details on Kits index page
 $(function() {
   $(".js-more").on("click", function() {
@@ -69,7 +76,7 @@ $(function(){
     var posting = $.post(url, values)
     .success(Item.success)
     .error(Item.error)
-    //this.reset() //resets form but doesn't release form
+    this.reset() //resets form but doesn't release form
   //$('form.new_item').trigger("reset"); clears form too but doesn't release submit
   })
 })
