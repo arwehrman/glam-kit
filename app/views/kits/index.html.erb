@@ -8,15 +8,15 @@
   <% @kits.each do |k| %>
   <%= link_to k.name, kit_path(k) %><br><br>
   <button class="js-more" data-id="<%= k.id %>">Preview Items</button><br><br>
-  <div id="kit-<%=k.id%>-items"></div><br>
-  <div>
-    <script id="itemTemplate" type= "text/x-handlebars-template">
+  <div id=kitItems>
+    <script id="kititemsTemplate" type= "text/x-handlebars-template">
+      {{#each this}}
       <tr>
           <td>{{name}}</td>
           <td>{{brand}}</td>
           <td>{{color}}</td>
-          <td>{{category}}</td>
       </tr>
+      {{/each}}
     </script>
   </div>
   <% end %>

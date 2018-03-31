@@ -18,6 +18,8 @@ class Item{
     renderItem() {
       return Item.template(this)
       }
+
+
 }
 
 Item.success = function(json){
@@ -30,27 +32,23 @@ Item.error = function(response){
   console.log("We have a problem", response)
 }
 
-function resetForm() {
- $('form.new_item').each(function(){
-   $(this).val('').attr('checked',false).attr('selected',false);
- });
+function getKitItems(id){
+  $.get("/kits/" + id + ".json", function(data) {
+    var templateSource = $("#kititemsTemplate").html()
+    var template = Handlebars.compile(templateSource)
+    var kit = data;
+    var items = kit["items"]
+    var result = template(items);
+    debugger
+    $("kitItemsTable").append(result);
+  })
 }
-
-
 //show user kit details on Kits index page
 $(function() {
   $(".js-more").on("click", function() {
     var id = $(this).data("id");
-    $.get("/kits/" + id + ".json", function(data) {
-      var kit = data;
-      var items = kit["items"];
-      var itemList = "";
-      items.forEach(function(item) {
-        itemList += '<tr><td>' + item["name"] + '</td><td>' + item["brand"] + '</td><td>' + item["color"] +  '</td><td>' + item["comment"] + '</td></tr>'; //maybe make this into a handlebar template
-      });
-      $("#kit-" + id + "-items").html(itemList).toggle();
+    getKitItems(id)
     });
-  });
 });
 
 //index all users items
@@ -80,6 +78,8 @@ $(function(){
   //$('form.new_item').trigger("reset"); clears form too but doesn't release submit
   })
 })
+
+
 
 $(function(){
   Item.templateSource = $("#itemTemplate").html()
