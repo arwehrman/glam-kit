@@ -15,21 +15,17 @@
         <th>Name</th>
         <th>Brand</th>
         <th>Color</th>
-        <th>Rating</th>
-        <th>Comment</th>
       </tr>
       {{#each this}}
       <tr>
           <td>{{name}}</td>
           <td>{{brand}}</td>
           <td>{{color}}</td>
-          <td>{{rating}}</td>
-          <td>{{comment}}</td>
-
       </tr>
       {{/each}}
     </script>
-    <% end %>
+  <% end %>
+
 </div>
 
 <%= link_to 'Add a New Kit', new_kit_path%><br>
