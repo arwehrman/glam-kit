@@ -38,6 +38,7 @@ $(function() {
 //handlebars template preview kit items
 function getKitItems(id){
   $.get("/kits/" + id + ".json", function(data){
+    document.getElementById("kitItemsTable").innerHTML = ""
     let templateSource = $("#kititemsTemplate").html()
     let template = Handlebars.compile(templateSource)
     let kit = data;

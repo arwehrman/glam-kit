@@ -8,18 +8,28 @@
   <% @kits.each do |k| %>
   <%= link_to k.name, kit_path(k) %><br><br>
   <button class="js-more" data-id="<%= k.id %>">Preview Items</button><br><br>
-  <% end %>
-  <table id=kitItemsTable></table>
-    <script id="kititemsTemplate" type="text/x-handlebars-template">
 
+ <table id=kitItemsTable></table>
+    <script id="kititemsTemplate" type="text/x-handlebars-template">
+      <tr>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>Color</th>
+        <th>Rating</th>
+        <th>Comment</th>
+      </tr>
       {{#each this}}
       <tr>
           <td>{{name}}</td>
           <td>{{brand}}</td>
           <td>{{color}}</td>
+          <td>{{rating}}</td>
+          <td>{{comment}}</td>
+
       </tr>
       {{/each}}
     </script>
+    <% end %>
 </div>
 
 <%= link_to 'Add a New Kit', new_kit_path%><br>
@@ -30,7 +40,13 @@
 
 <table id="allitemstable"></table>
 <script id="allitemsTemplate" type="text/x-handlebars-template">
-
+  <tr>
+    <th>Name</th>
+    <th>Brand</th>
+    <th>Color</th>
+    <th>Rating</th>
+    <th>Comment</th>
+  </tr>
   {{#each this}}
   <tr>
       <td>{{name}}</td>
