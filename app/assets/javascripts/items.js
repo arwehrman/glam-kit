@@ -13,6 +13,7 @@ class Item{
     renderItem() {
       return Item.template(this)
       }
+
 }
 
 Item.success = function(json){
@@ -36,7 +37,6 @@ function getKitItems(id){
     document.getElementById("kitItemsTable").innerHTML += result
   })
 }
-
 //handlebars index all user items
  function getAllItems(){
   $.get("/items", function(data) {
@@ -51,7 +51,8 @@ function getKitItems(id){
 
 //show user kit details on Kits index page
 $(function() {
-  $(".js-more").on("click", function() {
+  $(".js-more").on("click", function(e) {
+    e.preventDefault()
     $("#kitItemsTable").toggle()
     var id = $(this).data("id");
     getKitItems(id)
@@ -78,6 +79,8 @@ $(function(){
     this.reset()
   })
 })
+
+
 
 $(function(){
   Item.templateSource = $("#itemTemplate").html()
