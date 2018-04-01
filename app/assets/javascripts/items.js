@@ -36,6 +36,7 @@ function getKitItems(id){
     document.getElementById("kitItemsTable").innerHTML += result
   })
 }
+
 //handlebars index all user items
  function getAllItems(){
   $.get("/items", function(data) {
