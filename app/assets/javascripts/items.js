@@ -13,12 +13,11 @@ class Item{
     renderItem() {
       return Item.template(this)
       }
-
 }
 
 Item.success = function(json){
-  var item = new Item(json);
-  var itemRow = item.renderItem()
+  let item = new Item(json);
+  let itemRow = item.renderItem()
   $("table#kitItems").append(itemRow);
 }
 
@@ -28,33 +27,33 @@ Item.error = function(response){
 
 //handlebars template preview kit items
 function getKitItems(id){
-  $.get("/kits/" + id + ".json", function(data) {
-    var templateSource = $("#kititemsTemplate").html()
-    var template = Handlebars.compile(templateSource)
-    var kit = data;
-    var items = kit["items"]
-    var result = template(items);
+  $.get("/kits/" + id + ".json", function(data){
+    let templateSource = $("#kititemsTemplate").html()
+    let template = Handlebars.compile(templateSource)
+    let kit = data;
+    let items = kit["items"]
+    let result = template(items);
     document.getElementById("kitItemsTable").innerHTML += result
   })
 }
 //handlebars index all user items
  function getAllItems(){
-  $.get("/items", function(data) {
+  $.get("/items", function(data){
     document.getElementById("allitemstable").innerHTML = "" //clear out
-    var templateSource = $("#allitemsTemplate").html()
-    var template = Handlebars.compile(templateSource)
-    var items = data;
-    var result = template(items);
+    let templateSource = $("#allitemsTemplate").html()
+    let template = Handlebars.compile(templateSource)
+    let items = data;
+    let result = template(items);
     document.getElementById("allitemstable").innerHTML += result
   })
   }
 
 //show user kit details on Kits index page
 $(function() {
-  $(".js-more").on("click", function(e) {
+  $(".js-more").on("click", function(e){
     e.preventDefault()
     $("#kitItemsTable").toggle()
-    var id = $(this).data("id");
+    let id = $(this).data("id");
     getKitItems(id)
     });
 });
@@ -72,15 +71,13 @@ $(function(){
   $('form.new_item').submit(function(e){
     e.preventDefault();
     url = this.action
-    var values = $(this).serialize();
-    var posting = $.post(url, values)
+    let values = $(this).serialize();
+    let posting = $.post(url, values)
     .success(Item.success)
     .error(Item.error)
     this.reset()
   })
 })
-
-
 
 $(function(){
   Item.templateSource = $("#itemTemplate").html()
