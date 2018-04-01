@@ -34,6 +34,7 @@ $(function() {
     getKitItems(id)
     });
 });
+
 //handlebars template preview kit items
 function getKitItems(id){
   $.get("/kits/" + id + ".json", function(data){
@@ -63,7 +64,7 @@ $(function(){
     let items = data;
     let result = template(items);
     document.getElementById("allitemstable").innerHTML += result
-  })
+    })
   }
 
 //add item to existing kit
