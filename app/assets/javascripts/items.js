@@ -56,7 +56,7 @@ $(function(){
   })
 
 //handlebars index all user items
- function getAllItems(){
+function getAllItems(){
   $.get("/items", function(data){
     document.getElementById("allitemstable").innerHTML = "" //clear out
     let templateSource = $("#allitemsTemplate").html()

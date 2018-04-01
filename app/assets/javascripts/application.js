@@ -12,5 +12,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require rails-ujs
-//= require handlebars-v4.0.11.js
+//= require handlebars
+//= require_tree ./templates
 //= require_tree .
