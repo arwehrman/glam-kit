@@ -25,6 +25,15 @@ Item.error = function(response){
   console.log("We have a problem", response)
 }
 
+//show user kit details on Kits index page
+$(function() {
+  $(".js-more").on("click", function(e){
+    e.preventDefault()
+    $("#kitItemsTable").toggle()
+    let id = $(this).data("id");
+    getKitItems(id)
+    });
+});
 //handlebars template preview kit items
 function getKitItems(id){
   $.get("/kits/" + id + ".json", function(data){
@@ -36,6 +45,15 @@ function getKitItems(id){
     document.getElementById("kitItemsTable").innerHTML += result
   })
 }
+
+//index all users items
+$(function(){
+  $(".js-allItems").on("click", function(){
+    $('#allitemstable').toggle()
+      getAllItems()
+    })
+  })
+
 //handlebars index all user items
  function getAllItems(){
   $.get("/items", function(data){
@@ -47,24 +65,6 @@ function getKitItems(id){
     document.getElementById("allitemstable").innerHTML += result
   })
   }
-
-//show user kit details on Kits index page
-$(function() {
-  $(".js-more").on("click", function(e){
-    e.preventDefault()
-    $("#kitItemsTable").toggle()
-    let id = $(this).data("id");
-    getKitItems(id)
-    });
-});
-
-//index all users items
-$(function(){
-  $(".js-allItems").on("click", function(){
-    $('#allitemstable').toggle()
-      getAllItems()
-    })
-  })
 
 //add item to existing kit
  $(function(){
