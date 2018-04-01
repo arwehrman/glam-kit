@@ -62,7 +62,6 @@ function getAllItems(){
     document.getElementById("allitemstable").innerHTML = "" //clear out
     let templateSource = $("#allitemsTemplate").html()
     let template = Handlebars.compile(templateSource)
-    debugger
     let items = data;
     let result = template(items);
     document.getElementById("allitemstable").innerHTML += result
