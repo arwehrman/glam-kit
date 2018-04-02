@@ -28,7 +28,6 @@ Item.error = function(response){
 //show user kit details on Kits index page
 $(function() {
   $(".js-more").on("click", function(e){
-    e.preventDefault()
     $("#kitItemsTable").toggle()
     let id = $(this).data("id");
     getKitItems(id)
@@ -38,13 +37,14 @@ $(function() {
 //handlebars template preview kit items
 function getKitItems(id){
   $.get("/kits/" + id + ".json", function(data){
-    document.getElementById("kitItemsTable").innerHTML = ""
+    let kitDetail = document.getElementById("kitItemsTable")
+      kitDetail.innerHTML = ""
     let templateSource = $("#kititemsTemplate").html()
     let template = Handlebars.compile(templateSource)
     let kit = data;
     let items = kit["items"]
     let result = template(items);
-    document.getElementById("kitItemsTable").innerHTML += result
+      kitDetail.innerHTML += result
   })
 }
 
@@ -59,12 +59,13 @@ $(function(){
 //handlebars index all user items
 function getAllItems(){
   $.get("/items", function(data){
-    document.getElementById("allitemstable").innerHTML = "" //clear out
+    let allItems = document.getElementById("allitemstable")
+     allItems.innerHTML = ""
     let templateSource = $("#allitemsTemplate").html()
     let template = Handlebars.compile(templateSource)
     let items = data;
     let result = template(items);
-    document.getElementById("allitemstable").innerHTML += result
+    allItems.innerHTML += result
     })
   }
 
