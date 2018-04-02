@@ -35,12 +35,12 @@ $(function() {
 });
 
 //handlebars template preview kit items
-function getKitItems(id){
+const getKitItems = function(id){
+  let templateSource = $("#kititemsTemplate").html()
+  let template = Handlebars.compile(templateSource)
   $.get("/kits/" + id + ".json", function(data){
     let kitDetail = document.getElementById("kitItemsTable")
       kitDetail.innerHTML = ""
-    let templateSource = $("#kititemsTemplate").html()
-    let template = Handlebars.compile(templateSource)
     let kit = data;
     let items = kit["items"]
     let result = template(items);
@@ -57,12 +57,14 @@ $(function(){
   })
 
 //handlebars index all user items
-function getAllItems(){
+const getAllItems = function(){
+
+  let templateSource = $("#allitemsTemplate").html()
+  let template = Handlebars.compile(templateSource)
+
   $.get("/items", function(data){
     let allItems = document.getElementById("allitemstable")
-     allItems.innerHTML = ""
-    let templateSource = $("#allitemsTemplate").html()
-    let template = Handlebars.compile(templateSource)
+    allItems.innerHTML = ""
     let items = data;
     let result = template(items);
     allItems.innerHTML += result
