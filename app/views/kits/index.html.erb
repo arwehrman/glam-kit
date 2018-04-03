@@ -10,7 +10,7 @@
   <button class="js-more" data-id="<%= k.id %>">Preview Items</button><br><br>
 
  <table id=kitItemsTable style="display: none;"></table>
-    <script id="kititemsTemplate" type="text/x-handlebars-template" >
+    <script id="kitItemsTemplate" type="text/x-handlebars-template" >
       <tr>
         <th>Name</th>
         <th>Brand</th>
@@ -25,7 +25,6 @@
       {{/each}}
     </script>
   <% end %>
-
 </div>
 
 <%= link_to 'Add a New Kit', new_kit_path%><br>
@@ -33,9 +32,11 @@
 
 <p>Check out other users' items and ratings: <!--%= link_to 'See all Items', items_path%--> </p>
 <button class="js-allItems" data-id="">See All Items</button><br>
+<div>
 
-<table id="allitemstable" style="display: none;"></table>
-<script id="allitemsTemplate" type="text/x-handlebars-template">
+
+<table id="allItemsTable" style="display: none;"></table>
+<script id="allItemsTemplate" type="text/x-handlebars-template">
   <tr>
     <th>Name</th>
     <th>Brand</th>
@@ -50,7 +51,7 @@
       <td>{{color}}</td>
       <td>{{rating}}</td>
       <td>{{comment}}</td>
-
   </tr>
   {{/each}}
 </script>
+</div>
