@@ -61,6 +61,7 @@ function getAllItems(){
 //add new item to existing kit form
   Item.success = function(json){
     let item = new Item(json);
+    debugger
     let itemRow = item.renderItem()
     $("table#kitItems").append(itemRow);
   }
