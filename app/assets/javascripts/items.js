@@ -50,6 +50,7 @@ $(function(){
 function getAllItems(){
   $.get("/items", function(data){
     let templateSource = $("#allitemsTemplate").html()
+    $('#allitemstable').css("display","table")
     let template = Handlebars.compile(templateSource)
     let allItems = document.getElementById("allitemstable")
       allItems.innerHTML = ""

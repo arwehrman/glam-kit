@@ -9,8 +9,8 @@
   <%= link_to k.name, kit_path(k) %><br><br>
   <button class="js-more" data-id="<%= k.id %>">Preview Items</button><br><br>
 
- <table id=kitItemsTable></table>
-    <script id="kititemsTemplate" type="text/x-handlebars-template">
+ <table id=kitItemsTable style="display: none;"></table>
+    <script id="kititemsTemplate" type="text/x-handlebars-template" >
       <tr>
         <th>Name</th>
         <th>Brand</th>
@@ -34,7 +34,7 @@
 <p>Check out other users' items and ratings: <!--%= link_to 'See all Items', items_path%--> </p>
 <button class="js-allItems" data-id="">See All Items</button><br>
 
-<table id="allitemstable"></table>
+<table id="allitemstable" style="display: none;"></table>
 <script id="allitemsTemplate" type="text/x-handlebars-template">
   <tr>
     <th>Name</th>
