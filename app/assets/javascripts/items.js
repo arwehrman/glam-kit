@@ -15,30 +15,20 @@ class Item{
       }
 }
 
-Item.success = function(json){
-  let item = new Item(json);
-  let itemRow = item.renderItem()
-  $("table#kitItems").append(itemRow);
-}
-
-Item.error = function(response){
-  console.log("We have a problem", response)
-}
-
 //show user kit details on Kits index page
 $(function() {
   $(".js-more").on("click", function(e){
     $("#kitItemsTable").toggle()
     let id = $(this).data("id");
-    getKitItems(id)
+      getKitItems(id)
     });
 });
 
 //handlebars template preview kit items
-const getKitItems = function(id){
-  let templateSource = $("#kititemsTemplate").html()
-  let template = Handlebars.compile(templateSource)
+function getKitItems(id){
   $.get("/kits/" + id + ".json", function(data){
+    let templateSource = $("#kititemsTemplate").html()
+    let template = Handlebars.compile(templateSource)
     let kitDetail = document.getElementById("kitItemsTable")
       kitDetail.innerHTML = ""
     let kit = data;
@@ -48,7 +38,7 @@ const getKitItems = function(id){
   })
 }
 
-//index all users items
+//index all users itemss
 $(function(){
   $(".js-allItems").on("click", function(){
     $('#allitemstable').toggle()
@@ -56,28 +46,42 @@ $(function(){
     })
   })
 
-//handlebars index all user items
-const getAllItems = function(){
-
-  let templateSource = $("#allitemsTemplate").html()
-  let template = Handlebars.compile(templateSource)
-
+function getAllItems(){
   $.get("/items", function(data){
+    let templateSource = $("#allitemsTemplate").html()
+    let template = Handlebars.compile(templateSource)
     let allItems = document.getElementById("allitemstable")
-    allItems.innerHTML = ""
+      allItems.innerHTML = ""
     let items = data;
     let result = template(items);
-    allItems.innerHTML += result
+      allItems.innerHTML += result
     })
+  }
+
+//add new item to existing kit form
+  Item.success = function(json){
+    let item = new Item(json);
+    let itemRow = item.renderItem()
+    $("table#kitItems").append(itemRow);
+  }
+
+  Item.error = function(response){
+    console.log("We have a problem", response)
   }
 
 //add item to existing kit
  $(function(){
   $('form.new_item').submit(function(e){
     e.preventDefault();
-    url = this.action
-    let values = $(this).serialize();
-    let posting = $.post(url, values)
+    let $form = $(this)
+    let action = $form.attr("action")
+    let params = $form.serialize();
+    $.ajax({
+      url: action,
+      data: params,
+      dataType: "json",
+      method: "POST"
+    })
     .success(Item.success)
     .error(Item.error)
     this.reset()
