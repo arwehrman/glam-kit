@@ -11,7 +11,7 @@ class Item{
     this.kitId = attributes.kit['id']
     }
     renderItem() {
-      return Item.template(this)
+      return Item.rowtemplate(this)
       }
 }
 
@@ -46,6 +46,7 @@ $(function(){
     })
   })
 
+//includes handlebars to Index all Items
 function getAllItems(){
   $.get("/items", function(data){
     let templateSource = $("#allitemsTemplate").html()
@@ -70,7 +71,7 @@ function getAllItems(){
     console.log("We have a problem", response)
   }
 
-//add item to existing kit
+//Form to add item to existing kit
  $(function(){
   $('form.new_item').submit(function(e){
     e.preventDefault();
@@ -89,6 +90,7 @@ function getAllItems(){
   })
 })
 
+//handlebars for Form
 $(function(){
   Item.templateSource = $("#itemTemplate").html()
   Item.template = Handlebars.compile(Item.templateSource);
