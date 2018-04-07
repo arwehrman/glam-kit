@@ -35,6 +35,26 @@ td {
     padding: 8px;
 }
 
+/* kit items table */
+#kitItemsTable {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 60%;
+}
+
+th {
+   border: 1px solid #dddddd;
+   text-align: center;
+   padding: 8px;
+   background-color: #7f1ae5;
+   color: white;
+}
+
+td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
 
 /* errors */
 div.field_with_errors input[type="text"]{
