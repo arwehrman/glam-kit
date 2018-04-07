@@ -1,4 +1,4 @@
-class Item{
+class Item {
   constructor(attributes){
     this.name = attributes['name'];
     this.brand = attributes['brand'];
@@ -9,11 +9,11 @@ class Item{
     this.comment = attributes['comment'];
     this.id = attributes['id'];
     this.kitId = attributes.kit['id']
-    }
+  };
     renderItem() {
       return Item.rowtemplate(this)
-      }
-}
+    };
+};
 
 //show user kit details on Kits index page
 $(function() {
@@ -36,9 +36,9 @@ function getKitItems(id){
     let result = template(items);
       kitDetail.innerHTML += result
   })
-}
+};
 
-//index all users itemss
+//index all users items
 $(function(){
   $(".js-allItems").on("click", function(){
     $('#allItemsTable').toggle()
@@ -57,19 +57,18 @@ function getAllItems(){
     let result = template(items);
       allItems.innerHTML += result
     })
-  }
+  };
 
 //add new item to existing kit form
   Item.success = function(json){
     let item = new Item(json);
-    debugger
     let itemRow = item.renderItem()
     $("table#kitItems").append(itemRow);
-  }
+  };
 
   Item.error = function(response){
     console.log("We have a problem", response)
-  }
+  };
 
 //Form to add item to existing kit
  $(function(){
