@@ -11,7 +11,9 @@ class Item {
     this.kitId = attributes.kit['id']
   };
     renderItem() {
-      return Item.rowtemplate(this)
+      let templateSource = $("#itemTemplate").html()
+      let rowtemplate = Handlebars.compile(templateSource);
+      return rowtemplate(this)
     };
 };
 
@@ -87,10 +89,4 @@ function getAllItems(){
     .error(Item.error)
     this.reset()
   })
-})
-
-//handlebars for Form
-$(function(){
-  Item.templateSource = $("#itemTemplate").html()
-  Item.template = Handlebars.compile(Item.templateSource);
 })
