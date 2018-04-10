@@ -27,12 +27,18 @@
 <%= link_to 'Add a New Kit', new_kit_path%><br>
 <%= link_to 'Sign Out', signout_path, method: :delete %><br>
 
-<p>Check out other users' items and ratings: <!--%= link_to 'See all Items', items_path%--> </p>
+<p>Check out other users' items and ratings:</p>
 <button class="js-allItems" data-id="">See All Items</button><br>
 <div>
-
 <table id="allItemsTable" style="display: none;"></table>
 <script id="allItemsTemplate" type="text/x-handlebars-template">
+  {{!-- Filter feature not implemented yet --}}
+  <h3>Filter items by:</h3>
+  <%= form_tag("/items", method: "get") do %>
+    <%= label_tag "Category" %><%= select_tag "category", options_from_collection_for_select(@categories, "id", "name"), include_blank: true %>
+    <%= label_tag "Rating" %><%= select_tag "rating", options_for_select(1..5), include_blank: true %>
+    <%= submit_tag "Filter" %>
+  <% end %>
   <tr>
     <th>Name</th>
     <th>Brand</th>

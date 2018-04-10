@@ -2,6 +2,7 @@ class KitsController < ApplicationController
  before_action :authenticate_user!
 
   def index
+    @categories = Category.all
     @kits = current_user.kits
     @items = Item.all
   end

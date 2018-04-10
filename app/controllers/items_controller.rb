@@ -9,7 +9,10 @@ class ItemsController < ApplicationController
       @items = Item.by_category(params[:category])
     else
       @items = Item.all
-      render json: @items
+      respond_to do |format|
+        format.json {render json: @items}
+        format.html {render :index}
+      end
     end
   end
 
