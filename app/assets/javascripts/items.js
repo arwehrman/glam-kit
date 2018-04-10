@@ -18,7 +18,7 @@ class Item {
 };
 
 //show user kit details on Kits index page
-$(function() {
+$(() => {
   $(".js-more").on("click", function(e){
     $("#kitItemsTable").toggle()
     let id = $(this).data("id");
@@ -27,7 +27,7 @@ $(function() {
 });
 
 //handlebars template preview kit items
-function getKitItems(id){
+const getKitItems = (id) => {
   $.get("/kits/" + id + ".json", function(data){
     let templateSource = $("#kitItemsTemplate").html()
     let template = Handlebars.compile(templateSource)
@@ -41,7 +41,7 @@ function getKitItems(id){
 };
 
 //index all users items
-$(function(){
+$(() => {
   $(".js-allItems").on("click", function(){
     $('#allItemsTable').toggle()
       getAllItems()
@@ -49,7 +49,7 @@ $(function(){
   })
 
 //includes handlebars to Index all Items
-function getAllItems(){
+const getAllItems = () => {
   $.get("/items", function(data){
     let allItems = document.getElementById("allItemsTable")
       allItems.innerHTML = ""
@@ -62,13 +62,13 @@ function getAllItems(){
   };
 
 //add new item to existing kit form
-  Item.success = function(json){
+  Item.success = (json) => {
     let item = new Item(json);
     let itemRow = item.renderItem()
     $("table#kitItems").append(itemRow);
   };
 
-  Item.error = function(response){
+  Item.error = (response) => {
     console.log("We have a problem", response)
   };
 
