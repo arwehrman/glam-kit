@@ -15,6 +15,7 @@ class Item {
       let rowtemplate = Handlebars.compile(templateSource);
       return rowtemplate(this)
     };
+
 };
 
 //show user kit details on Kits index page
@@ -61,17 +62,6 @@ const getAllItems = () => {
     })
   };
 
-//add new item to existing kit form
-  Item.success = (json) => {
-    let item = new Item(json);
-    let itemRow = item.renderItem()
-    $("table#kitItems").append(itemRow);
-  };
-
-  Item.error = (response) => {
-    console.log("We have a problem", response)
-  };
-
 //Form to add item to existing kit
  $(function(){
   $('form.new_item').submit(function(e){
@@ -85,8 +75,12 @@ const getAllItems = () => {
       dataType: "json",
       method: "POST"
     })
-    .success(Item.success)
-    .error(Item.error)
+    .done((json) =>{
+        let item = new Item(json);
+        let itemRow = item.renderItem()
+        $("table#kitItems").append(itemRow);
+      })
+
     this.reset()
   })
 })
