@@ -11,7 +11,7 @@ class Item {
     this.kitId = attributes.kit['id']
   };
     renderItem() {
-      let templateSource = $("#itemTemplate").html()
+      const templateSource = $("#itemTemplate").html()
       let rowtemplate = Handlebars.compile(templateSource);
       return rowtemplate(this)
     };
@@ -30,9 +30,9 @@ $(() => {
 //handlebars template preview kit items
 const getKitItems = (id) => {
   $.get("/kits/" + id + ".json", function(data){
-    let templateSource = $("#kitItemsTemplate").html()
+    const templateSource = $("#kitItemsTemplate").html()
     let template = Handlebars.compile(templateSource)
-    let kitDetail = document.getElementById("kitItemsTable")
+    const kitDetail = document.getElementById("kitItemsTable")
       kitDetail.innerHTML = ""
     let kit = data;
     let items = kit["items"]
@@ -52,9 +52,9 @@ $(() => {
 //includes handlebars to Index all Items
 const getAllItems = () => {
   $.get("/items", function(data){
-    let allItems = document.getElementById("allItemsTable")
+    const allItems = document.getElementById("allItemsTable")
       allItems.innerHTML = ""
-    let templateSource = $("#allItemsTemplate").html()
+    const templateSource = $("#allItemsTemplate").html()
     let template = Handlebars.compile(templateSource)
     let items = data;
     let result = template(items);
@@ -66,8 +66,8 @@ const getAllItems = () => {
  $(function(){
   $('form.new_item').submit(function(e){
     e.preventDefault();
-    let $form = $(this)
-    let action = $form.attr("action")
+    const $form = $(this)
+    const action = $form.attr("action")
     let params = $form.serialize();
     $.ajax({
       url: action,
@@ -75,12 +75,11 @@ const getAllItems = () => {
       dataType: "json",
       method: "POST"
     })
-    .done((json) =>{
+    .done((json) => {
         let item = new Item(json);
         let itemRow = item.renderItem()
         $("table#kitItems").append(itemRow);
       })
-
     this.reset()
   })
 })
