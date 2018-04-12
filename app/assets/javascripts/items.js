@@ -54,8 +54,8 @@ function allItemsTemplate(items){
 $(()=> {
   $('.js-Category').on('click', function(e){
     $('#allItemsTable').toggle()
-   $.get('/items', function(data){
-     const items = data.sort((itemA, itemB) => {
+   $.get('/items', function(items){
+        items.sort((itemA, itemB) => {
        if (itemA.category.name < itemB.category.name) {
            return -1;
          }
