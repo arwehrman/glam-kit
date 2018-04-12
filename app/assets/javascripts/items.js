@@ -12,7 +12,7 @@ class Item {
   };
     renderItem() {
       const templateSource = $("#itemTemplate").html()
-      let rowtemplate = Handlebars.compile(templateSource);
+      const rowtemplate = Handlebars.compile(templateSource);
       return rowtemplate(this)
     };
 };
@@ -30,12 +30,12 @@ $(() => {
 const getKitItems = (id) => {
   $.get(`/kits/${id}.json`, function(data){
     const templateSource = $("#kitItemsTemplate").html()
-    let template = Handlebars.compile(templateSource)
+    const template = Handlebars.compile(templateSource)
     const kitDetail = document.getElementById("kitItemsTable")
       kitDetail.innerHTML = ""
-    let kit = data
-    let items = kit["items"]
-    let result = template(items);
+    const kit = data
+    const items = kit["items"]
+    const result = template(items);
       kitDetail.innerHTML += result
   })
 };
@@ -103,7 +103,7 @@ const getAllItems = () => {
     e.preventDefault();
     const $form = $(this)
     const action = $form.attr("action")
-    let params = $form.serialize();
+    const params = $form.serialize();
     $.ajax({
       url: action,
       data: params,
@@ -111,8 +111,8 @@ const getAllItems = () => {
       method: "POST"
     })
     .success((json) => {
-        let item = new Item(json);
-        let itemRow = item.renderItem()
+        const item = new Item(json);
+        const itemRow = item.renderItem()
         $("table#kitItems").append(itemRow);
       })
     this.reset()
