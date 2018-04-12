@@ -40,16 +40,22 @@ const getKitItems = (id) => {
   })
 };
 
+// Index All Items template All, Category, and Rating
+function allItemsTemplate(items){
+  const allItems = document.getElementById("allItemsTable")
+    allItems.innerHTML = ""
+  const templateSource = $("#allItemsTemplate").html()
+  const template = Handlebars.compile(templateSource)
+  const result = template(items)
+  return allItems.innerHTML += result
+}
+
+//index all Items by Category
 $(()=> {
   $('.js-Category').on('click', function(e){
     $('#allItemsTable').toggle()
    $.get('/items', function(data){
-     const allItems = document.getElementById("allItemsTable")
-       allItems.innerHTML = ""
-     const templateSource = $("#allItemsTemplate").html()
-     const template = Handlebars.compile(templateSource)
-     const sorted = data.sort((itemA, itemB) => {
-  
+     const items = data.sort((itemA, itemB) => {
        if (itemA.category.name < itemB.category.name) {
            return -1;
          }
@@ -57,33 +63,24 @@ $(()=> {
            return 1;
          }
          return 0;
-
       })
-      const result = template(sorted);
-        allItems.innerHTML += result
+      return allItemsTemplate(items)
    })
   })
 })
 
-
+// index all Items by Rating
 $(()=> {
   $('.js-byRating').on('click', function(e){
     $('#allItemsTable').toggle()
    $.get('/items', function(data){
-     const allItems = document.getElementById("allItemsTable")
-       allItems.innerHTML = ""
-     const templateSource = $("#allItemsTemplate").html()
-     const template = Handlebars.compile(templateSource)
-     const sorted = data.sort((itemA,itemB) => {
+     const items = data.sort((itemA,itemB) => {
        return itemB.rating - itemA.rating
       })
-
-      const result = template(sorted);
-        allItems.innerHTML += result
+      return allItemsTemplate(items)
    })
   })
 })
-
 
 //index all users items
 $(() => {
@@ -95,14 +92,8 @@ $(() => {
 
 //includes handlebars to Index all Items
 const getAllItems = () => {
-  $.get("/items", function(data){
-    const allItems = document.getElementById("allItemsTable")
-      allItems.innerHTML = ""
-    const templateSource = $("#allItemsTemplate").html()
-    let template = Handlebars.compile(templateSource)
-    let items = data
-    let result = template(items);
-      allItems.innerHTML += result
+  $.get("/items", function(items){
+    return allItemsTemplate(items)
     })
   };
 
