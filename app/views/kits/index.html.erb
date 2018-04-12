@@ -1,12 +1,13 @@
-<!--kits index-->
+
 <h3>Welcome <%= current_user.name %></h3>
 
 <h4>You have a total of <%= pluralize(@kits.count, "kit") %></h4>
 
-  <p>Please select a kit from below to see more details.</p>
+  <p>Please select a kit from below to see more details</p>
   <% @kits.each do |k| %>
-  <%= link_to k.name, kit_path(k) %><br><br>
-  <button class="js-more" data-id="<%= k.id %>">Preview Items</button><br><br>
+  <%= link_to k.name, kit_path(k) %>
+  <p>Description: <%= k.description%></p>
+  <button class="js-more" data-id="<%= k.id %>">Preview Kit</button><br><br>
 
  <table id=kitItemsTable style="display: none;"></table>
     <script id="kitItemsTemplate" type="text/x-handlebars-template" >
@@ -28,7 +29,9 @@
 <%= link_to 'Sign Out', signout_path, method: :delete %><br>
 
 <p>Check out other users' items and ratings:</p>
-<button class="js-allItems" data-id="">See All Items</button><br>
+<button class="js-allItems" data-id="">See All Items</button>
+<button class="js-byRating" data-id="">By Rating</button><br>
+
 <div>
 <table id="allItemsTable" style="display: none;"></table>
 <script id="allItemsTemplate" type="text/x-handlebars-template">

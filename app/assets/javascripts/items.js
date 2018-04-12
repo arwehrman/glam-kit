@@ -15,7 +15,6 @@ class Item {
       let rowtemplate = Handlebars.compile(templateSource);
       return rowtemplate(this)
     };
-
 };
 
 //show user kit details on Kits index page
@@ -29,17 +28,37 @@ $(() => {
 
 //handlebars template preview kit items
 const getKitItems = (id) => {
-  $.get("/kits/" + id + ".json", function(data){
+  $.get(`/kits/${id}.json`, function(data){
     const templateSource = $("#kitItemsTemplate").html()
     let template = Handlebars.compile(templateSource)
     const kitDetail = document.getElementById("kitItemsTable")
       kitDetail.innerHTML = ""
-    let kit = data;
+    let kit = data
     let items = kit["items"]
     let result = template(items);
       kitDetail.innerHTML += result
   })
 };
+
+
+$(()=> {
+  $('.js-byRating').on('click', function(e){
+    $('#allItemsTable').toggle()
+   $.get('/items', function(data){
+     const allItems = document.getElementById("allItemsTable")
+       allItems.innerHTML = ""
+     const templateSource = $("#allItemsTemplate").html()
+     const template = Handlebars.compile(templateSource)
+     const sorted = data.sort((itemA,itemB) => {
+       return itemB.rating - itemA.rating
+      })
+
+      const result = template(sorted);
+        allItems.innerHTML += result
+   })
+  })
+})
+
 
 //index all users items
 $(() => {
@@ -56,7 +75,7 @@ const getAllItems = () => {
       allItems.innerHTML = ""
     const templateSource = $("#allItemsTemplate").html()
     let template = Handlebars.compile(templateSource)
-    let items = data;
+    let items = data
     let result = template(items);
       allItems.innerHTML += result
     })
@@ -75,7 +94,7 @@ const getAllItems = () => {
       dataType: "json",
       method: "POST"
     })
-    .done((json) => {
+    .success((json) => {
         let item = new Item(json);
         let itemRow = item.renderItem()
         $("table#kitItems").append(itemRow);
