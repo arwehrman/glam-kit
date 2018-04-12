@@ -40,6 +40,31 @@ const getKitItems = (id) => {
   })
 };
 
+$(()=> {
+  $('.js-Category').on('click', function(e){
+    $('#allItemsTable').toggle()
+   $.get('/items', function(data){
+     const allItems = document.getElementById("allItemsTable")
+       allItems.innerHTML = ""
+     const templateSource = $("#allItemsTemplate").html()
+     const template = Handlebars.compile(templateSource)
+     const sorted = data.sort((itemA, itemB) => {
+  
+       if (itemA.category.name < itemB.category.name) {
+           return -1;
+         }
+         if (itemA.category.name > itemB.category.name) {
+           return 1;
+         }
+         return 0;
+
+      })
+      const result = template(sorted);
+        allItems.innerHTML += result
+   })
+  })
+})
+
 
 $(()=> {
   $('.js-byRating').on('click', function(e){
