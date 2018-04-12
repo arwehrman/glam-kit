@@ -21,7 +21,7 @@ class Item {
 $(() => {
   $(".js-more").on("click", function(e){
     $("#kitItemsTable").toggle()
-    let id = $(this).data("id");
+    const id = $(this).data("id");
       getKitItems(id)
     });
 });
