@@ -3,16 +3,10 @@ class ItemsController < ApplicationController
 
   def index
     @categories = Category.all
-    if !params[:rating].blank?
-      @items = Item.by_rating(params[:rating])
-    elsif !params[:category].blank?
-      @items = Item.by_category(params[:category])
-    else
       @items = Item.all
       respond_to do |format|
         format.json {render json: @items}
         format.html {render :index}
-      end
     end
   end
 
