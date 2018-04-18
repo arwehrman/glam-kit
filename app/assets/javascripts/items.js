@@ -26,7 +26,7 @@ $(() => {
     });
 });
 
-//handlebars template preview kit items
+//get request and handlebars template preview kit items
 const getKitItems = (id) => {
   $.get(`/kits/${id}.json`, function(data){
     const templateSource = $("#kitItemsTemplate").html()
@@ -55,15 +55,7 @@ $(()=> {
   $('.js-Category').on('click', function(e){
     $('#allItemsTable').toggle()
    $.get('/items', function(items){
-        items.sort((itemA, itemB) => {
-       if (itemA.category.name < itemB.category.name) {
-           return -1;
-         }
-         if (itemA.category.name > itemB.category.name) {
-           return 1;
-         }
-         return 0;
-      })
+        items.sort((itemA, itemB) => itemA.category.name < itemB.category.name ? -1 : 1)
       return allItemsTemplate(items)
    })
   })
@@ -74,9 +66,7 @@ $(()=> {
   $('.js-byRating').on('click', function(e){
     $('#allItemsTable').toggle()
    $.get('/items', function(data){
-     const items = data.sort((itemA,itemB) => {
-       return itemB.rating - itemA.rating
-      })
+     const items = data.sort((itemA,itemB) => itemB.rating - itemA.rating)
       return allItemsTemplate(items)
    })
   })

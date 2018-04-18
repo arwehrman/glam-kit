@@ -23,8 +23,9 @@
     <td><%= number_to_currency(i.price) %></td>
     <td><%= i.rating %></td>
     <td><%= i.comment%></td>
-    <td><%= link_to "Edit", edit_kit_item_path(@kit, i) %></td>
-    <td><%= link_to "Delete", kit_item_path(@kit, i), method: :delete, data: { confirm: "Are you sure?" } %>
+    <td><%= button_to "Edit", edit_kit_item_path(@kit, i), method: :get%></td>
+    <td><%= button_to "Delete", kit_item_path(@kit, i), method: :delete, data: { confirm: "Are you sure?" }%></td>
+
   </tr>
   <% end %>
 </table>
@@ -39,10 +40,11 @@
     <td>${{price}}</td>
     <td>{{rating}}</td>
     <td>{{comment}}</td>
-    <td><a href="/kits/<%= @kit.id %>/items/{{id}}/edit">Edit</a></td>
+    <td><form class="button_to" method="get" action="/kits/<%= @kit.id %>/items/{{id}}/edit"><input type="submit" value="Edit"></form></td>
     <td><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/kits/<%= @kit.id %>/items/{{id}}">Delete</a>
   </tr>
 </script>
+
 
 <h3>Add Another Item</h3>
 <%= render partial: "/items/form" %>
