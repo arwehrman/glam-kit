@@ -41,7 +41,12 @@
     <td>{{rating}}</td>
     <td>{{comment}}</td>
     <td><form class="button_to" method="get" action="/kits/<%= @kit.id %>/items/{{id}}/edit"><input type="submit" value="Edit"></form></td>
-    <td><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/kits/<%= @kit.id %>/items/{{id}}">Delete</a>
+
+    <td><form class="button_to" method="post" action="/kits/<%= @kit.id %>/items/{{id}}">
+        <input type="hidden" name="_method" value="delete">
+        <input class="destroy" type="submit" value="Delete">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      </form></td>
   </tr>
 </script>
 
