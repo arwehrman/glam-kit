@@ -87,7 +87,6 @@ const getAllItems = () => {
     })
   };
 
-
 //Form to add item to existing kit
  $(function(){
   $('form.new_item').submit(function(e){
