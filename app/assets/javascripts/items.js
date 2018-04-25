@@ -72,7 +72,7 @@ $(()=> {
   })
 })
 
-//index all users items
+//index all Users items
 $(() => {
   $(".js-allItems").on("click", function(){
     $('#allItemsTable').toggle()
@@ -80,7 +80,7 @@ $(() => {
     })
   })
 
-//includes handlebars to Index all Items
+//index all Items from all Users
 const getAllItems = () => {
   $.get("/items", function(items){
     return allItemsTemplate(items)
