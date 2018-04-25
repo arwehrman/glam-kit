@@ -4,7 +4,7 @@ class Item {
     this.brand = attributes['brand'];
     this.color = attributes['color'];
     this.category = attributes.category['name']
-    this.price = attributes['price'];
+    this.price = parseFloat(Math.round(attributes['price'] * 100) / 100).toFixed(2);
     this.rating = attributes['rating'];
     this.comment = attributes['comment'];
     this.id = attributes['id'];
@@ -101,6 +101,7 @@ const getAllItems = () => {
       method: "POST"
     })
     .success((json) => {
+      debugger
         const item = new Item(json);
         const itemRow = item.renderItem()
         $("table#kitItems").append(itemRow);
