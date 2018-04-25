@@ -23,9 +23,8 @@
     <td><%= number_to_currency(i.price) %></td>
     <td><%= i.rating %></td>
     <td><%= i.comment%></td>
-    <td><%= button_to "Edit", edit_kit_item_path(@kit, i), method: :get%></td>
-    <td><%= button_to "Delete", kit_item_path(@kit, i), method: :delete, data: { confirm: "Are you sure?" }%></td>
-
+    <td><%= button_to "Edit", edit_kit_item_path(@kit, i),  method: :get%></td>
+    <td><%= button_to "Delete", kit_item_path(@kit, i), :form => { :id => "dbutton" }, method: :delete, data: { confirm: "Are you sure?" }%></td>
   </tr>
   <% end %>
 </table>
