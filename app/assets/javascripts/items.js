@@ -45,6 +45,7 @@ function allItemsTemplate(items){
   const allItems = document.getElementById("allItemsTable")
     allItems.innerHTML = ""
   const templateSource = $("#allItemsTemplate").html()
+  debugger
   const template = Handlebars.compile(templateSource)
   const result = template(items)
   return allItems.innerHTML += result
@@ -71,6 +72,25 @@ $(()=> {
    })
   })
 })
+
+$(() =>{
+  $('#filter').on("click", function(e){
+    e.preventDefault()
+    const value = document.getElementById('brand').value
+
+    $.get('items', function(data){
+
+      const filtered = data.filter((item) => item.brand === value)
+
+        return filtered
+
+
+          const allItems = document.getElementById("allItemsTable")
+          return allItems.innerHTML += filter
+        })
+      })
+    })
+
 
 //index all Users items
 $(() => {
