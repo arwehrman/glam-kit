@@ -27,21 +27,14 @@
   <% end %>
 <%= link_to 'Add a New Kit', new_kit_path%><br>
 <%= link_to 'Sign Out', signout_path, method: :delete %><br>
-
-<p>Check out other users' items and ratings:</p>
-<button class="js-allItems" data-id="">See All Items</button>
-<button class="js-byRating" data-id="">By Rating</button>
-<button class="js-Category" data-id="">By Category</button><br>
-<form id="filter">
-
-  <input type="text" id="brand"><br>
-
-  <input type="submit">
-</form>
 <div>
-  
+<p>Check out other users' items and ratings:</p>
+  <button class="js-allItems" data-id="">See All Items</button>
+  <button class="js-byRating" data-id="">By Rating</button>
+  <button class="js-Category" data-id="">By Category</button><br>
 </div>
 <div>
+
 <table id="allItemsTable" style="display: none;"></table>
 <script id="allItemsTemplate" type="text/x-handlebars-template">
 
