@@ -1,3 +1,4 @@
+<div class="main">
 <h1><%= @kit.name %></h1>
 <h2><%= @kit.description %></h2>
 <p><%= pluralize(@kit.items.count, "item")%> in this kit</p>
@@ -55,3 +56,4 @@
 
 <%= link_to "Delete Kit", kit_path(@kit), method: :delete, data: { confirm: "Are you sure?" } %>
 <%= link_to "Go Back to Kits", kits_path %><br><br>
+</div>

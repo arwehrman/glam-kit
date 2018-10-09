@@ -65,3 +65,10 @@ JS-jQuery additions
 - form creates and renders a response w/o page refresh
 - must have a method on prototype
 - must translate the JSON response into JS Model Objects
+
+CSS theme colors
+- 802BB1
+- 2D283E background
+- 564F6F
+- 4C495D
+- D1D7E0

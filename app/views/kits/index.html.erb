@@ -1,4 +1,4 @@
-
+<div class="main">
 <h3>Welcome <%= current_user.name %></h3>
 
 <h4>You have a total of <%= pluralize(@kits.count, "kit") %></h4>
@@ -31,7 +31,7 @@
 <p>Check out other users' items and ratings:</p>
   <button class="js-allItems" data-id="">See All Items</button>
   <button class="js-byRating" data-id="">By Rating</button>
-  <button class="js-Category" data-id="">By Category</button><br>
+  <button class="js-Category" data-id="">By Category</button><br><br>
 </div>
 <div>
 
@@ -57,4 +57,5 @@
   </tr>
   {{/each}}
 </script>
+</div>
 </div>
