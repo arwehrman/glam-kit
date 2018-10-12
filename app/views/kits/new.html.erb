@@ -1,3 +1,4 @@
+
 <% if @kit.errors.any? %>
   <div id="error_explanation">
     <h3>
@@ -14,7 +15,7 @@
 <% end %>
 
 <h1>Add a New Kit Form</h1>
-<div>
+<div class="form">
   <p>Fields marked with * are required. The GlamKit will not be created
     unless these fields are filled in.</p>
 <%= form_for(@kit) do |f| %>
@@ -45,7 +46,7 @@
 <% end %>
 <br><br>
 <%= link_to "Go Back to Kits", kits_path %><br><br>
-
+</div>
 <div id="kitResult">
   <h2 id="kitName"></h2>
   <h3 id="kitId"></h3>

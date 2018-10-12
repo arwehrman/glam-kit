@@ -1,3 +1,5 @@
+<br>
+<br>
 <div class="main">
 <h3>Welcome <%= current_user.name %></h3>
 
@@ -7,7 +9,7 @@
   <% @kits.each do |k| %>
   <%= link_to k.name, kit_path(k) %>
   <p>Description: <%= k.description%></p>
-  <button class="js-more" data-id="<%= k.id %>">Preview Kit</button><br><br>
+  <button id="button" class="js-more" data-id="<%= k.id %>">Preview Kit</button><br><br>
 
  <table id=kitItemsTable style="display: none;"></table>
     <script id="kitItemsTemplate" type="text/x-handlebars-template" >
@@ -25,13 +27,13 @@
       {{/each}}
     </script>
   <% end %>
-<%= link_to 'Add a New Kit', new_kit_path%><br>
+<%= link_to 'Add a New Kit', new_kit_path%><br><br>
 <%= link_to 'Sign Out', signout_path, method: :delete %><br>
 <div>
 <p>Check out other users' items and ratings:</p>
-  <button class="js-allItems" data-id="">See All Items</button>
-  <button class="js-byRating" data-id="">By Rating</button>
-  <button class="js-Category" data-id="">By Category</button><br><br>
+  <button id="button" class="js-allItems" data-id="">See All Items</button>
+  <button id="button" class="js-byRating" data-id="">By Rating</button>
+  <button id="button" class="js-Category" data-id="">By Category</button><br><br>
 </div>
 <div>
 
