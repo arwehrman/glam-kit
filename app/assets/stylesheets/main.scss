@@ -13,7 +13,7 @@ footer {
   color:white;
 }
 
-a:link, a:visited {
+  a.linkbutton:link, a.linkbuton:visited {
     background-color: #480034;
     color: white;
     padding: 14px 25px;
@@ -21,19 +21,28 @@ a:link, a:visited {
     text-decoration: none;
     border-radius: 4px;
     display: inline-block;
-}
+  }
 
-
-a:hover, a:active {
+  a.linkbuton:hover, a.linkbuton:active {
     background-color: #68094E;
 }
 
-
 body {
-  background: #1D1A31
+  background: #1D1A31;
+  color: white;
+}
+
+div.sidebar{
+  background: #B4599B ;
+  float: left;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 div.main {
+  margin: auto;
   background: #B4599B;
   padding-left: 10px;
   padding-top: 10px;
