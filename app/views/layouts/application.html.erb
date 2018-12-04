@@ -9,12 +9,11 @@
   </head>
 
   <body>
-    <header>GlamKit</header>
-    <br>
-    <div class="sidebar" >Sidebar</div>
+  <%= render 'layouts/header' %>
+  <br>
     <%= yield %>
 
-    <footer>Copyright &copy; GlamKit.com</footer>
+  <%= render 'layouts/footer' %>
 
   </body>
 </html>
