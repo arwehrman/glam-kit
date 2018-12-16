@@ -98,14 +98,13 @@ const getAllItems = () => {
       url: action,
       data: params,
       dataType: "json",
-      method: "POST"
+      method: "POST",
+      success: function(json){
+          const item = new Item(json);
+          const itemRow = item.renderItem()
+          $("table#kitItems").append(itemRow);
+        }
     })
-    .success((json) => {
-      debugger
-        const item = new Item(json);
-        const itemRow = item.renderItem()
-        $("table#kitItems").append(itemRow);
-      })
     this.reset()
   })
 })
