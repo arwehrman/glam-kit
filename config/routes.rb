@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get '/' => 'sessions#welcome', as: 'welcome'
-  get 'static_pages/about', as: 'about'
-  get 'static_pages/contact', as: 'contact'
+  get '/about' => 'static_pages#about', as: 'about'
+  get 'contact' =>'static_pages#contact', as: 'contact'
   get '/signin' => 'sessions#new', as: 'signin'
   post '/login' => 'sessions#login'
   delete '/signout' => 'sessions#destroy'
