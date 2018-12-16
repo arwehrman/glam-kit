@@ -2,15 +2,15 @@
 <h1><%= @kit.name %></h1>
 <h2><%= @kit.description %></h2>
 <p><%= pluralize(@kit.items.count, "item")%> in this kit</p>
-<table id="kitItems">
+<table id="kitItems" class="table table-hover table-dark">
   <tr>
-    <th>Name</th>
-    <th>Brand</th>
-    <th>Color</th>
-    <th>Category</th>
-    <th>Price</th>
-    <th>Rating</th>
-    <th>Comment</th>
+    <th scope="col">Name</th>
+    <th scope="col">Brand</th>
+    <th scope="col">Color</th>
+    <th scope="col">Category</th>
+    <th scope="col">Price</th>
+    <th scope="col">Rating</th>
+    <th scope="col">Comment</th>
   </tr>
 
   <tr>

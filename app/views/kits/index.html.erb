@@ -11,12 +11,12 @@
   <p>Description: <%= k.description%></p>
   <button id="button" class="js-more" data-id="<%= k.id %>">Preview Kit</button><br><br>
 
- <table id=kitItemsTable style="display: none;"></table>
+ <table class="table table-striped table-dark" id=kitItemsTable style="display: none;"></table>
     <script id="kitItemsTemplate" type="text/x-handlebars-template" >
       <tr>
-        <th>Name</th>
-        <th>Brand</th>
-        <th>Color</th>
+        <th scope="col">Name</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Color</th>
       </tr>
       {{#each this}}
       <tr>
@@ -37,7 +37,7 @@
 </div>
 <div>
 
-<table id="allItemsTable" style="display: none;"></table>
+<table  class="table table-hover table-dark" id="allItemsTable" style="display: none;"></table>
 <script id="allItemsTemplate" type="text/x-handlebars-template">
 
   <tr>
