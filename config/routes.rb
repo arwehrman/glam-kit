@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get '/' => 'sessions#welcome', as: 'welcome'
-  get '/auth/facebook/callback' => 'sessions#create'
+  get 'static_pages/about'
+  get 'static_pages/contact'
   get '/signin' => 'sessions#new', as: 'signin'
   post '/login' => 'sessions#login'
   delete '/signout' => 'sessions#destroy'
