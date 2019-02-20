@@ -6,6 +6,7 @@ development:
   host: localhost
   username: glamkit
   password: password1
+  
 test:
   adapter: postgresql
   database: glamkitdb_test
