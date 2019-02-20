@@ -11,10 +11,35 @@ body {
   background-color: #F0386B;
   color: #F8C0C8;
 }
+
+/* Links */
 a {
   color: #E2C290;
+  text-decoration: none;
+}
+a:hover {
+  color: #6B2D5C;
+  text-decoration: none;
 }
 
+/* Links to Buttons */
+a.linkbutton {
+  background-color: #E2C290;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  outline: none;
+}
+
+/* Buttons */
 button {
   background-color: #E2C290;
   border: none;
@@ -28,13 +53,18 @@ button {
   margin: 4px 2px;
   cursor: pointer;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  outline: none;
 }
 
 
 button:hover {
   background-color: #6B2D5C;
+  border: none;
   color: white;
+  outline: none;
 }
+
+button:focus {outline:0;}
 
 
 /* footer */
